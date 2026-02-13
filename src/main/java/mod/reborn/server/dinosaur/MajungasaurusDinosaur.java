@@ -2,7 +2,7 @@ package mod.reborn.server.dinosaur;
 
 
 import mod.reborn.server.entity.Diet;
-import mod.reborn.server.entity.dinosaur.MajungasaurusEntity;
+import mod.reborn.server.entity.dinosaur.*;
 import mod.reborn.server.period.TimePeriod;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -15,7 +15,6 @@ public class MajungasaurusDinosaur extends Dinosaur
     public MajungasaurusDinosaur()
     {
         super();
-
         this.setName("Majungasaurus");
         this.setDinosaurType(DinosaurType.AGGRESSIVE);
         this.setDinosaurClass(MajungasaurusEntity.class);
@@ -32,9 +31,9 @@ public class MajungasaurusDinosaur extends Dinosaur
         this.setStorage(36);
         this.setDiet((Diet.CARNIVORE.get()));
         this.setBones("skull", "tooth", "claw", "foot_bones", "leg_bones", "neck_vertebrae", "pelvis", "ribcage", "shoulder", "tail_vertebrae");
-        this.setHeadCubeName("Head");
+        this.setHeadCubeName("head");
         this.shouldDefendOffspring();
-        this.setScale(1.6F, 0.1F);
+        this.setScale(1.3F, 0.1F);
         this.setAttackBias(180);
         this.setImprintable(true);
         this.setDefendOwner(true);
@@ -51,5 +50,6 @@ public class MajungasaurusDinosaur extends Dinosaur
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST));
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.PLAINS));
         this.setSpawn(1, biomeList.toArray(new Biome[biomeList.size()]));
+this.init();
     }
 }

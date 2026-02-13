@@ -73,6 +73,13 @@ public abstract class Dinosaur implements Comparable<Dinosaur> {
     private float offsetX;
     private float offsetY;
     private float offsetZ;
+    private float skeletonOffsetX;
+    private float skeletonOffsetY;
+    private float skeletonOffsetZ;
+    private boolean hasSkeletonOffset;
+    private boolean hasSkeletonScale;
+    private float skeletonScaleInfant;
+    private float skeletonScaleAdult;
 
     private TabulaModelContainer modelAdult;
     private TabulaModelContainer modelInfant;
@@ -636,12 +643,24 @@ public abstract class Dinosaur implements Comparable<Dinosaur> {
         this.scaleAdult = scaleAdult;
     }
 
+    public void setSkeletonScale(float scaleAdult, float scaleInfant) {
+        this.skeletonScaleInfant = scaleInfant;
+        this.skeletonScaleAdult = scaleAdult;
+        this.hasSkeletonScale = true;
+    }
+
     public void setOffset(float x, float y, float z) {
         this.offsetX = x;
         this.offsetY = y;
         this.offsetZ = z;
     }
 
+    public void setSkeletonOffset(float x, float y, float z) {
+        this.skeletonOffsetX = x;
+        this.skeletonOffsetY = y;
+        this.skeletonOffsetZ = z;
+        this.hasSkeletonOffset = true;
+    }
     public void setPaleoPadScale(float paleoPadScale) {
         this.paleoPadScale = paleoPadScale;
     }
@@ -657,9 +676,18 @@ public abstract class Dinosaur implements Comparable<Dinosaur> {
     public void setFlee(boolean flee) {
         this.flee = flee;
     }
+    public double getSkeletonScaleInfant() {
+        return this.hasSkeletonScale ? this.skeletonScaleInfant : this.scaleInfant;
+    }
+    public double getSkeletonScaleAdult() {
+        return this.hasSkeletonScale ? this.skeletonScaleAdult : this.scaleAdult;
+    }
 
     public double getScaleInfant() {
         return this.scaleInfant;
+    }
+    public double getScaleAdult(boolean skeleton) {
+        return skeleton ? this.getSkeletonScaleAdult() : this.scaleAdult;
     }
 
     public double getScaleAdult() {
@@ -680,6 +708,18 @@ public abstract class Dinosaur implements Comparable<Dinosaur> {
 
     public float getOffsetZ() {
         return this.offsetZ;
+    }
+
+    public float getSkeletonOffsetX() {
+        return this.hasSkeletonOffset ? this.skeletonOffsetX : this.offsetX;
+    }
+
+    public float getSkeletonOffsetY() {
+        return this.hasSkeletonOffset ? this.skeletonOffsetY : this.offsetY;
+    }
+
+    public float getSkeletonOffsetZ() {
+        return this.hasSkeletonOffset ? this.skeletonOffsetZ : this.offsetZ;
     }
 
     public PoseHandler<?> getPoseHandler() {

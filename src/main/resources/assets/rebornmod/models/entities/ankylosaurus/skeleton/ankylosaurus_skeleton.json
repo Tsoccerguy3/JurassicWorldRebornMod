@@ -6,6 +6,12 @@
 			"pose": "ankylosaurus_skeleton_idle",
 			"time": 1
 		  }
+		],
+		"ATTACKING": [
+			{
+				"pose": "ankylosaurus_skeleton_attack",
+				"time": 1
+			}
 		]
 	}
 }

@@ -30,7 +30,7 @@ public class DisplayBlockEntity extends TileEntity {
 
     private SerializedData serializedData = new InvalidData();
 
-    public void setDinosaur(int dinosaurId, boolean isMale, boolean isSkeleton) {
+    public void setDinosaur(int dinosaurId, boolean isMale, boolean isSkeleton, boolean isFossile, byte variant) {
         this.isMale = isMale;
         this.isSkeleton = isSkeleton;
         this.variant = variant;

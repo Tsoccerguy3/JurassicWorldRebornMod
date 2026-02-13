@@ -1,18 +1,21 @@
+
 package mod.reborn.client.model.animation.entity;
 
+
+import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
 import mod.reborn.client.model.AnimatableModel;
 import mod.reborn.client.model.animation.EntityAnimator;
-import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
+import mod.reborn.server.entity.dinosaur.BrachiosaurusEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import mod.reborn.server.entity.dinosaur.BrachiosaurusEntity;
 
 @SideOnly(Side.CLIENT)
 public class BrachiosaurusAnimator extends EntityAnimator<BrachiosaurusEntity> {
     @Override
     protected void performAnimations(AnimatableModel model, BrachiosaurusEntity entity, float f, float f1, float ticks, float rotationYaw, float rotationPitch, float scale) {
         AdvancedModelRenderer head = model.getCube("head");
+        AdvancedModelRenderer hips = model.getCube("hips");
 
         AdvancedModelRenderer neck1 = model.getCube("Neck 1");
         AdvancedModelRenderer neck2 = model.getCube("neck2");
@@ -30,10 +33,9 @@ public class BrachiosaurusAnimator extends EntityAnimator<BrachiosaurusEntity> {
         AdvancedModelRenderer tail5 = model.getCube("tail5");
 
         AdvancedModelRenderer[] neckParts = new AdvancedModelRenderer[] { head, neck8, neck7, neck6, neck5, neck4, neck3, neck2, neck1 };
-        AdvancedModelRenderer[] tailParts = new AdvancedModelRenderer[] { tail5, tail4, tail3 };
-        AdvancedModelRenderer[] tailParts2 = new AdvancedModelRenderer[] { tail5, tail4, tail3, tail2, tail1 };
+        AdvancedModelRenderer[] tailParts = new AdvancedModelRenderer[] { tail5, tail4, tail3, tail2 };
 
-        float delta = Minecraft.getMinecraft().getRenderPartialTicks();
+float delta = Minecraft.getMinecraft().getRenderPartialTicks();
         AdvancedModelRenderer root = model.getCube("hips");
         AdvancedModelRenderer backLeftThigh = model.getCube("top leg left");
         AdvancedModelRenderer backLeftCalf = model.getCube("bottom leg left");
@@ -49,9 +51,18 @@ public class BrachiosaurusAnimator extends EntityAnimator<BrachiosaurusEntity> {
             delta
         );
 
-        float globalSpeed = 0.4F;
-        float globalHeight = 0.5F;
+        float idleSpeed  = 0.10F;   // frequency
+        float idleDegree = 0.08F;   // amplitude
 
-        entity.tailBuffer.applyChainSwingBuffer(tailParts2);
+        // gentle chest/hips bob
+        model.bob(hips, idleSpeed, 0.6F, false, ticks, 1.0F);
+
+        // tiny neck undulation (up/down)
+        model.chainWave(neckParts, idleSpeed * 0.6F, idleDegree * 0.6F, -2, ticks, 1.0F);
+
+        // --- idle tail sway (left/right) ---
+        model.chainSwing(tailParts, idleSpeed, 0.15F, -2, ticks, 1.0F);
+
+        entity.tailBuffer.applyChainSwingBuffer(tailParts);
     }
 }

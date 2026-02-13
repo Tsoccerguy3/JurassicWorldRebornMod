@@ -1,8 +1,11 @@
+
 package mod.reborn.client.model.animation.entity;
 
+
+import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
 import mod.reborn.client.model.AnimatableModel;
 import mod.reborn.client.model.animation.EntityAnimator;
-import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
+
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -22,6 +25,11 @@ public class MamenchisaurusAnimator extends EntityAnimator<MamenchisaurusEntity>
         AdvancedModelRenderer neck4 = model.getCube("neck4");
         AdvancedModelRenderer neck5 = model.getCube("neck5");
         AdvancedModelRenderer neck6 = model.getCube("neck6");
+        AdvancedModelRenderer neck7 = model.getCube("neck7");
+        AdvancedModelRenderer neck8 = model.getCube("neck8");
+        AdvancedModelRenderer neck9 = model.getCube("neck9");
+        AdvancedModelRenderer neck10 = model.getCube("neck10");
+        AdvancedModelRenderer neck11 = model.getCube("neck11");
 
         AdvancedModelRenderer waist = model.getCube("hips");
         AdvancedModelRenderer tail1 = model.getCube("tail1");
@@ -29,6 +37,11 @@ public class MamenchisaurusAnimator extends EntityAnimator<MamenchisaurusEntity>
         AdvancedModelRenderer tail3 = model.getCube("tail3");
         AdvancedModelRenderer tail4 = model.getCube("tail4");
         AdvancedModelRenderer tail5 = model.getCube("tail5");
+        AdvancedModelRenderer tail6 = model.getCube("tail6");
+        AdvancedModelRenderer tail7 = model.getCube("tail7");
+        AdvancedModelRenderer tail8 = model.getCube("tail8");
+        AdvancedModelRenderer tail9 = model.getCube("tail9");
+        AdvancedModelRenderer tail10 = model.getCube("tail10");
 
 
         AdvancedModelRenderer lowerThighLeft = model.getCube("bottom front left leg");
@@ -56,9 +69,9 @@ public class MamenchisaurusAnimator extends EntityAnimator<MamenchisaurusEntity>
         AdvancedModelRenderer stomach = model.getCube("Stomach");
         AdvancedModelRenderer body = model.getCube("body");
 
-        AdvancedModelRenderer[] neckParts = new AdvancedModelRenderer[] { head, neck6, neck5, neck4, neck3, neck2, neck1, body };
-        AdvancedModelRenderer[] tailParts = new AdvancedModelRenderer[] { tail5, tail4, tail3, tail2, tail1 };
-        float delta = Minecraft.getMinecraft().getRenderPartialTicks();
+        AdvancedModelRenderer[] neckParts = new AdvancedModelRenderer[] { head,  neck11, neck10, neck9, neck8, neck7,neck6, neck5, neck4, neck3, neck2, neck1, body };
+        AdvancedModelRenderer[] tailParts = new AdvancedModelRenderer[] { tail10, tail9, tail8, tail7, tail6,tail5, tail4, tail3, tail2, tail1 };
+float delta = Minecraft.getMinecraft().getRenderPartialTicks();
 
         LegArticulator.articulateQuadruped(entity, entity.legSolver, waist, neck1,
                 backLeftThigh, backLeftCalf, backRightThigh, backRightCalf, armLeft, lowerArmLeft, armRight, lowerArmRight,
@@ -70,36 +83,19 @@ public class MamenchisaurusAnimator extends EntityAnimator<MamenchisaurusEntity>
         float globalSpeed = 0.5F;
         float globalHeight = 0.5F;
         float globalDegree = 0.5F;
-
         float frontOffset = 1.0F;
-
+        float idleSpeed  = 0.08F;
+        float idleDegree = 0.08F;
         model.bob(waist, globalSpeed * 1.0F, globalHeight * 4.0F, false, f, f1);
         model.bob(backLeftThigh, globalSpeed * 1.0F, globalHeight * 1.0F, false, f, f1);
         model.bob(backRightThigh, globalSpeed * 1.0F, globalHeight * 1.0F, false, f, f1);
 
-        model.chainWave(tailParts, globalSpeed * 1.0F, globalHeight * 0.25F, 3, f, f1);
-        model.chainSwing(tailParts, globalSpeed * 0.5F, globalHeight * 0.5F, 3, f, f1);
-     //   model.chainWave(neckParts, globalSpeed * 1.0F, globalHeight * 0.125F, -4, f, f1);
-
-    //    model.walk(backLeftThigh, 1F * globalSpeed, 0.7F * globalDegree, false, 0F, -0.4F, f, f1);
-    //    model.walk(lowerThighLeft, 1F * globalSpeed, 0.6F * globalDegree, true, 1F, 0.5F, f, f1);
-    //    model.walk(footLeft, 1F * globalSpeed, 0.6F * globalDegree, false, -1.5F, 0.85F, f, f1);
-
-    //    model.walk(backRightThigh, 1F * globalSpeed, 0.7F * globalDegree, true, 0F, -0.4F, f, f1);
-    //    model.walk(lowerThighRight, 1F * globalSpeed, 0.6F * globalDegree, false, 1F, 0.5F, f, f1);
-   //     model.walk(footRight, 1F * globalSpeed, 0.6F * globalDegree, true, -1.5F, 0.85F, f, f1);
-
-    //    model.walk(armLeft, 1F * globalSpeed, 0.7F * globalDegree, true, frontOffset + 0F, -0.2F, f, f1);
-    //    model.walk(lowerArmLeft, 1F * globalSpeed, 0.6F * globalDegree, true, frontOffset + 1F, -0.2F, f, f1);
-     //   model.walk(handLeft, 1F * globalSpeed, 0.6F * globalDegree, false, frontOffset + 2F, 0.8F, f, f1);
-
-     //   model.walk(armRight, 1F * globalSpeed, 0.7F * globalDegree, false, frontOffset + 0F, -0.2F, f, f1);
-     //   model.walk(lowerArmRight, 1F * globalSpeed, 0.6F * globalDegree, false, frontOffset + 1F, -0.2F, f, f1);
-    //    model.walk(handRight, 1F * globalSpeed, 0.6F * globalDegree, true, frontOffset + 2F, 0.8F, f, f1);
-
-        model.chainWave(tailParts, globalSpeed * 0.25F, globalHeight * 1.0F, 3, ticks, 0.025F);
         model.chainWave(neckParts, globalSpeed * 0.25F, globalHeight * 0.25F, -4, ticks, 0.025F);
 
+        model.chainSwing(tailParts, idleSpeed, 0.17F, -2, ticks, 1.0F);
+        if (f1 > 0.12F) {
+            model.chainSwing(tailParts, 0.55F, 0.12F, -2, f, f1);
+        }
         entity.tailBuffer.applyChainSwingBuffer(tailParts);
     }
 }

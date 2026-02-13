@@ -17,7 +17,7 @@ public class DunkleosteusEntity extends SwimmingDinosaurEntity
     public DunkleosteusEntity(World world)
     {
         super(world);
-        this.target(AlligatorGarEntity.class, MawsoniaEntity.class, EntitySquid.class, BeelzebufoEntity.class, CrassigyrinusEntity.class, DiplocaulusEntity.class, EntityPlayer.class, MegapiranhaEntity.class, EntityVillager.class, EntityAnimal.class, EntityMob.class);
+        this.target(AlligatorGarEntity.class, MawsoniaEntity.class, CamerocerasEntity.class, EndocerasEntity.class, EntitySquid.class, BeelzebufoEntity.class, CrassigyrinusEntity.class, DiplocaulusEntity.class, CalymeneEntity.class, EntityPlayer.class, MegapiranhaEntity.class, EntityVillager.class, EntityAnimal.class, EntityMob.class);
     }
     @Override
     public SoundEvent getSoundForAnimation(Animation animation)

@@ -5,6 +5,7 @@ import mod.reborn.server.entity.ai.Mutex;
 import mod.reborn.server.entity.ai.navigation.DinosaurMoveHelper;
 import mod.reborn.server.entity.animal.ai.EntityAIFindWater;
 import mod.reborn.server.entity.animal.ai.EntityAIWanderNearWater;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,6 +21,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public abstract class AmfibianDinosaurEntity extends DinosaurEntity {
+    private static final double WATER_SINK_RATE = 0.02D;
     private boolean getOut = false;
     private boolean getInWater = false;
 
@@ -97,9 +99,15 @@ public abstract class AmfibianDinosaurEntity extends DinosaurEntity {
             this.motionX *= 0.7D;
             this.motionY *= 0.7D;
             this.motionZ *= 0.7D;
+            this.motionY -= WATER_SINK_RATE;
         } else {
             super.travel(strafe, vertical, forward);
         }
+    }
+
+    @Override
+    public boolean isInWater() {
+        return this.inWater || this.world.handleMaterialAcceleration(this.getEntityBoundingBox().grow(0.0D, -0.5D, 0.0D).shrink(0.001D), Material.WATER, this);
     }
 
     class SwimmingMoveHelper extends DinosaurMoveHelper {

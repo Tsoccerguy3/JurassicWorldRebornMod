@@ -2,7 +2,7 @@ package mod.reborn.server.dinosaur;
 
 import mod.reborn.server.entity.Diet;
 import mod.reborn.server.entity.SleepTime;
-import mod.reborn.server.entity.dinosaur.DilophosaurusEntity;
+import mod.reborn.server.entity.dinosaur.*;
 import mod.reborn.server.period.TimePeriod;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -24,7 +24,7 @@ public class DilophosaurusDinosaur extends Dinosaur {
         this.setSpeed((SPEED -0.05), SPEED);
         this.setStrength(2, 6);
         this.setMaximumAge(this.fromDays(40));
-        this.setEyeHeight(0.45F, 1.85F);
+        this.setEyeHeight(0.45F, 1.55F);
         this.setSizeX(0.4F, 1.2F);
         this.setSizeY(0.5F, 1.9F);
         this.setStorage(27);
@@ -32,15 +32,16 @@ public class DilophosaurusDinosaur extends Dinosaur {
         this.setSleepTime(SleepTime.CREPUSCULAR);
         this.setBones("arm_bones", "leg_bones", "neck", "pelvis", "ribcage", "shoulder", "skull", "tail_vertebrae", "tooth");
         this.setHeadCubeName("Head");
-        this.setScale(0.95F, 0.22F);
+        this.setScale(0.45F, 0.05F);
         this.setImprintable(true);
+        this.setSkeletonScale(1.27F, 0.25F);
         this.setDefendOwner(true);
         this.setMaxHerdSize(10);
         this.setAttackBias(1200.0);
         this.setBreeding(false, 2, 4, 24, false, true);
         String[][] recipe =     {{"", "", "", "neck", "skull"},
-                                {"tail_vertebrae", "pelvis", "ribcage","shoulder","tooth"},
-                                 {"leg_bones", "leg_bones", "", "", "arm_bones"}};
+                {"tail_vertebrae", "pelvis", "ribcage","shoulder","tooth"},
+                {"leg_bones", "leg_bones", "", "", "arm_bones"}};
         this.setRecipe(recipe);
 
         ArrayList<Biome> biomeList = new ArrayList<Biome>();
@@ -51,6 +52,7 @@ public class DilophosaurusDinosaur extends Dinosaur {
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.MESA));
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.CONIFEROUS));
         this.setSpawn(1, biomeList.toArray(new Biome[biomeList.size()]));
+this.init();
         this.enableSkeleton();
 
     }

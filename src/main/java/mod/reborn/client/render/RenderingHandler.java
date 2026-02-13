@@ -583,6 +583,17 @@ public enum RenderingHandler {
         registerRenderInfo(EntityHandler.DIMETRODON, new DimetrodonAnimator(),0.64F);
         registerRenderInfo(EntityHandler.VECTIPELTA, new VectipeltaAnimator(), 0.85F);
         registerRenderInfo(EntityHandler.PARACERATHERIUM, new ParaceratheriumAnimator(), 1.14F);
+        registerRenderInfo(EntityHandler.KAIRUKU, new KairukuAnimator(), 0.45F);
+        registerRenderInfo(EntityHandler.CALYMENE, new CalymeneAnimator(), 0.25F);
+        registerRenderInfo(EntityHandler.MEGALODON, new MegalodonAnimator(), 1.75F);
+        registerRenderInfo(EntityHandler.LIVYATAN, new LivyatanAnimator(), 1.85F);
+        registerRenderInfo(EntityHandler.PATAGOTITAN, new PatagotitanAnimator(), 1.75F);
+        registerRenderInfo(EntityHandler.MAIASAURA, new MaiasauraAnimator(), 0.65F);
+        registerRenderInfo(EntityHandler.DEINOSUCHUS, new DeinosuchusAnimator(), 0.95F);
+        registerRenderInfo(EntityHandler.NIGERSAURUS, new NigersaurusAnimator(), 0.65F);
+        registerRenderInfo(EntityHandler.ENDOCERAS, new EndocerasAnimator(), 0.75F);
+        registerRenderInfo(EntityHandler.ORTHOCERAS, new OrthocerasAnimator(), 0.65F);
+        registerRenderInfo(EntityHandler.CAMEROCERAS, new CamerocerasAnimator(), 0.85F);
 
 
 

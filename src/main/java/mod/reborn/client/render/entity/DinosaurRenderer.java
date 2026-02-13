@@ -38,10 +38,15 @@ public class DinosaurRenderer extends RenderLiving<DinosaurEntity> {
     @Override
     public void preRenderCallback(DinosaurEntity entity, final float partialTick) {
         float scaleModifier = entity.getAttributes().getScaleModifier();
-        float scale = (float) entity.interpolate(this.dinosaur.getScaleInfant(), this.dinosaur.getScaleAdult()) * scaleModifier;
+        float scaleInfant = (float) (entity.isSkeleton() ? this.dinosaur.getSkeletonScaleInfant() : this.dinosaur.getScaleInfant());
+        float scaleAdult = (float) (entity.isSkeleton() ? this.dinosaur.getSkeletonScaleAdult() : this.dinosaur.getScaleAdult());
+        float scale = (float) entity.interpolate(scaleInfant, scaleAdult) * scaleModifier;
         this.shadowSize = scale * this.renderInfo.getShadowSize();
 
-        GlStateManager.translate(this.dinosaur.getOffsetX() * scale, this.dinosaur.getOffsetY() * scale, this.dinosaur.getOffsetZ() * scale);
+        float offsetX = entity.isSkeleton() ? this.dinosaur.getSkeletonOffsetX() : this.dinosaur.getOffsetX();
+        float offsetY = entity.isSkeleton() ? this.dinosaur.getSkeletonOffsetY() : this.dinosaur.getOffsetY();
+        float offsetZ = entity.isSkeleton() ? this.dinosaur.getSkeletonOffsetZ() : this.dinosaur.getOffsetZ();
+        GlStateManager.translate(offsetX * scale, offsetY * scale, offsetZ * scale);
 
         String name = entity.getCustomNameTag();
         switch (name) {
@@ -168,6 +173,24 @@ public class DinosaurRenderer extends RenderLiving<DinosaurEntity> {
         }
         if(entity instanceof ParaceratheriumEntity && !entity.isSkeleton()) {
             return ((ParaceratheriumEntity)entity).getTexture();
+        }
+        if(entity instanceof PatagotitanEntity && !entity.isSkeleton()) {
+            return ((PatagotitanEntity)entity).getTexture();
+        }
+        if(entity instanceof MaiasauraEntity && !entity.isSkeleton()) {
+            return ((MaiasauraEntity)entity).getTexture();
+        }
+        if(entity instanceof NigersaurusEntity && !entity.isSkeleton()) {
+            return ((NigersaurusEntity)entity).getTexture();
+        }
+        if(entity instanceof GiganotosaurusEntity && !entity.isSkeleton()) {
+            return ((GiganotosaurusEntity)entity).getTexture();
+        }
+        if(entity instanceof CorythosaurusEntity && !entity.isSkeleton()) {
+            return ((CorythosaurusEntity)entity).getTexture();
+        }
+        if(entity instanceof CalymeneEntity && !entity.isSkeleton()) {
+            return ((CalymeneEntity)entity).getTexture();
         }
 
 

@@ -35,6 +35,13 @@ public class SoundHandler {
     public static final SoundEvent DREADNOUGHTUS_THREAT = create("dreadnoughtus_threat");
     public static final SoundEvent DREADNOUGHTUS_MATING = create("dreadnoughtus_mate_call");
 
+    public static final SoundEvent PATAGOTITAN_LIVING = create("patagotitan_living");
+    public static final SoundEvent PATAGOTITAN_CALLING = create("patagotitan_call");
+    public static final SoundEvent PATAGOTITAN_DEATH = create("patagotitan_death");
+    public static final SoundEvent PATAGOTITAN_HURT = create("patagotitan_hurt");
+    public static final SoundEvent PATAGOTITAN_THREAT = create("patagotitan_threat");
+    public static final SoundEvent PATAGOTITAN_MATING = create("patagotitan_mate_call");
+
     public static final SoundEvent PARACERATHERIUM_LIVING = create("paraceratherium_living");
     public static final SoundEvent PARACERATHERIUM_DEATH = create("paraceratherium_death");
     public static final SoundEvent PARACERATHERIUM_HURT = create("paraceratherium_hurt");
@@ -76,6 +83,11 @@ public class SoundHandler {
     public static final SoundEvent CAMARASAURUS_DEATH = create("camarasaurus_death");
     public static final SoundEvent CAMARASAURUS_HURT = create("camarasaurus_hurt");
     public static final SoundEvent CAMARASAURUS_LIVING = create("camarasaurus_living");
+
+    public static final SoundEvent NIGERSAURUS_DEATH = create("nigersaurus_death");
+    public static final SoundEvent NIGERSAURUS_HURT = create("nigersaurus_hurt");
+    public static final SoundEvent NIGERSAURUS_LIVING = create("nigersaurus_living");
+    public static final SoundEvent NIGERSAURUS_ATTACKING = create("nigersaurus_attack");
 
     public static final SoundEvent ANKYLODOCUS_DEATH = create("ankylodocus_death");
     public static final SoundEvent ANKYLODOCUS_HURT = create("ankylodocus_hurt");
@@ -125,9 +137,8 @@ public class SoundHandler {
     public static final SoundEvent SMILODON_LIVING = create("smilodon_living");
     public static final SoundEvent SMILODON_HURT = create("smilodon_hurt");
     public static final SoundEvent SMILODON_DEATH = create("smilodon_death");
-    public static final SoundEvent SMILODON_ROAR = create("smilodon_roar");
     public static final SoundEvent SMILODON_BREATHING = create("smilodon_breathing");
-
+    public static final SoundEvent SMILODON_ROAR = create("smilodon_roar");
 
     public static final SoundEvent STYRACOSAURUS_LIVING = create("styracosaurus_living");
     public static final SoundEvent STYRACOSAURUS_HURT = create("styracosaurus_hurt");
@@ -207,6 +218,11 @@ public class SoundHandler {
     public static final SoundEvent EDMONTOSAURUS_DEATH = create("edmontosaurus_death");
     public static final SoundEvent EDMONTOSAURUS_CALL = create("edmontosaurus_call");
     public static final SoundEvent EDMONTOSAURUS_THREAT = create("edmontosaurus_threat");
+    public static final SoundEvent MAIASAURA_LIVING = create("maiasaura_living");
+    public static final SoundEvent MAIASAURA_HURT = create("maiasaura_hurt");
+    public static final SoundEvent MAIASAURA_DEATH = create("maiasaura_death");
+    public static final SoundEvent MAIASAURA_CALL = create("maiasaura_call");
+    public static final SoundEvent MAIASAURA_THREAT = create("maiasaura_threat");
 
     public static final SoundEvent DUNKLEOSTEUS_LIVING = create("dunkleosteus_living");
     public static final SoundEvent DUNKLEOSTEUS_HURT = create("dunkleosteus_hurt");
@@ -377,7 +393,6 @@ public class SoundHandler {
     public static final SoundEvent SPINORAPTOR_BREATHING = create("spinoraptor_breathing");
     public static final SoundEvent SPINORAPTOR_CALL = create("spinoraptor_call");
     public static final SoundEvent SPINORAPTOR_DEATH = create("spinoraptor_death");
-    public static final SoundEvent SPINORAPTOR_ATTACK = create("spinoraptor_attack");
 
 
     public static final SoundEvent ANKYLOSAURUS_LIVING = create("ankylosaurus_living");
@@ -481,7 +496,20 @@ public class SoundHandler {
     public static final SoundEvent POSTOSUCHUS_ATTACK = create("postosuchus_attack");
     public static final SoundEvent POSTOSUCHUS_CALL = create("postosuchus_call");
     public static final SoundEvent POSTOSUCHUS_DEATH = create("postosuchus_death");
-
+    public static final SoundEvent DEINOSUCHUS_ATTACK = create("deinosuchus_attack");
+    public static final SoundEvent DEINOSUCHUS_CALL = create("deinosuchus_call");
+    public static final SoundEvent DEINOSUCHUS_LIVING = create("deinosuchus_living");
+    public static final SoundEvent DEINOSUCHUS_DEATH = create("deinosuchus_death");
+    public static final SoundEvent DEINOSUCHUS_INJURED = create("deinosuchus_injured");
+    public static final SoundEvent DEINOSUCHUS_DEATH_ROLL = create("deinosuchus_death_roll");
+    public static final SoundEvent LIVYATAN_CALL = create("livyatan_call");
+    public static final SoundEvent LIVYATAN_DEATH = create("livyatan_death");
+    public static final SoundEvent LIVYATAN_HURT = create("livyatan_hurt");
+    public static final SoundEvent LIVYATAN_LIVING = create("livyatan_living");
+    public static final SoundEvent KAIRUKU_CALL = create("kairuku_call");
+    public static final SoundEvent KAIRUKU_DEATH = create("kairuku_death");
+    public static final SoundEvent KAIRUKU_HURT = create("kairuku_hurt");
+    public static final SoundEvent KAIRUKU_LIVING = create("kairuku_living");
     public static final SoundEvent GOAT_LIVING = create("goat_living");
     public static final SoundEvent GOAT_HURT = create("goat_hurt");
     public static final SoundEvent GOAT_DEATH = create("goat_death");
@@ -492,8 +520,10 @@ public class SoundHandler {
     public static final SoundEvent EMPTY = create("empty");
     public static final SoundEvent RELOAD = create("reload");
 
-    private static List<SoundEvent> sounds = Lists.newArrayList();
 
+
+
+    private static List<SoundEvent> sounds = Lists.newArrayList();
 
     public static SoundEvent create(String soundName) {
         SoundEvent sound = new SoundEvent(new ResourceLocation(RebornMod.MODID, soundName));

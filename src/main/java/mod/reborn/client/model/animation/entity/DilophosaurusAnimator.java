@@ -1,8 +1,11 @@
+
 package mod.reborn.client.model.animation.entity;
 
+
+import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
 import mod.reborn.client.model.AnimatableModel;
 import mod.reborn.client.model.animation.EntityAnimator;
-import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import mod.reborn.server.entity.dinosaur.DilophosaurusEntity;
@@ -11,61 +14,46 @@ import mod.reborn.server.entity.dinosaur.DilophosaurusEntity;
 public class DilophosaurusAnimator extends EntityAnimator<DilophosaurusEntity> {
     @Override
     protected void performAnimations(AnimatableModel model, DilophosaurusEntity entity, float limbSwing, float limbSwingAmount, float ticks, float rotationYaw, float rotationPitch, float scale) {
-        AdvancedModelRenderer frillLeftBottom = model.getCube("Frill Lower Left");
-        AdvancedModelRenderer frillLeftTop = model.getCube("Frill Upper Left");
+        AdvancedModelRenderer RightFrill = model.getCube("RightFrill1");
 
-        AdvancedModelRenderer frillRightBottom = model.getCube("Frill Lower Right");
-        AdvancedModelRenderer frillRightTop = model.getCube("Frill Upper Right");
+        AdvancedModelRenderer LeftFrill = model.getCube("LeftFrill1");
 
         boolean hasTarget = entity.hasTarget() && !entity.isCarcass();
 
-        frillLeftBottom.showModel = hasTarget;
-        frillLeftTop.showModel = hasTarget;
-        frillRightBottom.showModel = hasTarget;
-        frillRightTop.showModel = hasTarget;
+        LeftFrill.showModel = hasTarget;
+        RightFrill.showModel = hasTarget;
 
         AdvancedModelRenderer head = model.getCube("Head");
 
-        AdvancedModelRenderer neck1 = model.getCube("Neck Base");
-        AdvancedModelRenderer neck2 = model.getCube("Neck 2");
-        AdvancedModelRenderer neck3 = model.getCube("Neck 3");
-        AdvancedModelRenderer neck4 = model.getCube("Neck 4");
-        AdvancedModelRenderer neck5 = model.getCube("Neck 5");
-        AdvancedModelRenderer neck6 = model.getCube("Neck 6");
+        AdvancedModelRenderer neck1 = model.getCube("Neck1");
+        AdvancedModelRenderer neck2 = model.getCube("Neck2");
+        AdvancedModelRenderer neck3 = model.getCube("Neck3");
+        AdvancedModelRenderer neck4 = model.getCube("Neck4");
 
-        AdvancedModelRenderer body1 = model.getCube("Body FRONT");
-        AdvancedModelRenderer body2 = model.getCube("Body MIDDLE");
-        AdvancedModelRenderer body3 = model.getCube("Body REAR");
+        AdvancedModelRenderer body1 = model.getCube("Body");
 
-        AdvancedModelRenderer tail1 = model.getCube("Tail BASE");
-        AdvancedModelRenderer tail2 = model.getCube("Tail 2");
-        AdvancedModelRenderer tail3 = model.getCube("Tail 3");
-        AdvancedModelRenderer tail4 = model.getCube("Tail 4");
-        AdvancedModelRenderer tail5 = model.getCube("Tail 5");
-        AdvancedModelRenderer tail6 = model.getCube("Tail 6");
+        AdvancedModelRenderer tail1 = model.getCube("Tail1");
+        AdvancedModelRenderer tail2 = model.getCube("Tail2");
+        AdvancedModelRenderer tail3 = model.getCube("Tail3");
+        AdvancedModelRenderer tail4 = model.getCube("Tail4");
+        AdvancedModelRenderer tail5 = model.getCube("Tail5");
+        AdvancedModelRenderer tail6 = model.getCube("Tail6");
 
-        AdvancedModelRenderer rightThigh = model.getCube("Leg Right UPPER");
-        AdvancedModelRenderer leftThigh = model.getCube("Leg Left UPPER");
+        AdvancedModelRenderer rightThigh = model.getCube("rightleg");
+        AdvancedModelRenderer leftThigh = model.getCube("leftleg");
 
-        AdvancedModelRenderer upperArmRight = model.getCube("Right arm");
-        AdvancedModelRenderer upperArmLeft = model.getCube("Left arm");
-
-        AdvancedModelRenderer lowerArmRight = model.getCube("Right forearm");
-        AdvancedModelRenderer lowerArmLeft = model.getCube("Left forearm");
-
-        AdvancedModelRenderer handRight = model.getCube("Right hand");
-        AdvancedModelRenderer handLeft = model.getCube("Left hand");
-
-        AdvancedModelRenderer[] bodyParts = new AdvancedModelRenderer[] { head, neck6, neck5, neck4, neck3, neck2, neck1, body1, body2, body3 };
+        AdvancedModelRenderer upperArmRight = model.getCube("RightArm");
+        AdvancedModelRenderer upperArmLeft = model.getCube("LeftArm");
+        AdvancedModelRenderer[] bodyParts = new AdvancedModelRenderer[] { head, neck4, neck3, neck2, neck1, body1 };
         AdvancedModelRenderer[] tailParts = new AdvancedModelRenderer[] { tail6, tail5, tail4, tail3, tail2, tail1 };
 
-        AdvancedModelRenderer[] armRight = new AdvancedModelRenderer[] { handRight, lowerArmRight, upperArmRight };
-        AdvancedModelRenderer[] armLeft = new AdvancedModelRenderer[] { handLeft, lowerArmLeft, upperArmLeft };
+        AdvancedModelRenderer[] armRight = new AdvancedModelRenderer[] { upperArmRight };
+        AdvancedModelRenderer[] armLeft = new AdvancedModelRenderer[] { upperArmLeft };
 
         float globalSpeed = 1.0F;
         float globalDegree = 1.0F;
 
-        model.bob(body3, globalSpeed * 0.5F, globalDegree * 1.0F, false, limbSwing, limbSwingAmount);
+
         model.bob(rightThigh, globalSpeed * 0.5F, globalDegree * 1.0F, false, limbSwing, limbSwingAmount);
         model.bob(leftThigh, globalSpeed * 0.5F, globalDegree * 1.0F, false, limbSwing, limbSwingAmount);
 

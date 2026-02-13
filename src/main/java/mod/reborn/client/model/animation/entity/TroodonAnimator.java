@@ -1,93 +1,92 @@
+
 package mod.reborn.client.model.animation.entity;
 
-import mod.reborn.client.model.AnimatableModel;
-import mod.reborn.client.model.animation.EntityAnimator;
+
 import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import mod.reborn.client.model.AnimatableModel;
+import mod.reborn.client.model.animation.EntityAnimator;
 import mod.reborn.server.entity.dinosaur.TroodonEntity;
 
 @SideOnly(Side.CLIENT)
-public class TroodonAnimator extends EntityAnimator<TroodonEntity>
-{
+public class TroodonAnimator extends EntityAnimator<TroodonEntity> {
+
     @Override
-    protected void performAnimations(AnimatableModel model, TroodonEntity entity, float f, float f1, float ticks, float rotationYaw, float rotationPitch, float scale)
-    {
-        AdvancedModelRenderer head = model.getCube("head UPPER");
-        AdvancedModelRenderer neck1 = model.getCube("neck1");
-        AdvancedModelRenderer neck2 = model.getCube("neck2");
-        AdvancedModelRenderer neck3 = model.getCube("neck3");
-        AdvancedModelRenderer neck4 = model.getCube("neck4");
+    protected void performAnimations(AnimatableModel model,
+                                     TroodonEntity entity,
+                                     float limbSwing,
+                                     float limbSwingAmount,
+                                     float ticks,
+                                     float rotationYaw,
+                                     float rotationPitch,
+                                     float scale) {
 
-        AdvancedModelRenderer lowerJaw = model.getCube("Jaw LOWER");
+        AdvancedModelRenderer head   = model.getCube("Head");
 
-        AdvancedModelRenderer waist = model.getCube("body3");
-        AdvancedModelRenderer chest = model.getCube("body2");
-        AdvancedModelRenderer shoulders = model.getCube("body1");
+        AdvancedModelRenderer neck1  = model.getCube("Neck1");
+        AdvancedModelRenderer neck2  = model.getCube("Neck2");
+        AdvancedModelRenderer neck3  = model.getCube("Neck3");
+        AdvancedModelRenderer neck4  = model.getCube("Neck4");
+        AdvancedModelRenderer neck5  = model.getCube("Neck5");
 
-        AdvancedModelRenderer tail1 = model.getCube("tail1");
-        AdvancedModelRenderer tail2 = model.getCube("tail2");
-        AdvancedModelRenderer tail3 = model.getCube("tail3");
-        AdvancedModelRenderer tail4 = model.getCube("tail4");
-        AdvancedModelRenderer tail5 = model.getCube("tail5");
+        AdvancedModelRenderer chest  = model.getCube("Chest");
+        AdvancedModelRenderer rear   = model.getCube("Rear");
 
-        AdvancedModelRenderer upperArmR = model.getCube("Right arm");
-        AdvancedModelRenderer upperArmL = model.getCube("Left arm");
+        AdvancedModelRenderer upperArmR = model.getCube("Arm2");
+        AdvancedModelRenderer upperArmL = model.getCube("Arm");
 
-        AdvancedModelRenderer lowerArmR = model.getCube("Right forearm");
-        AdvancedModelRenderer lowerArmL = model.getCube("Left forearm");
+        AdvancedModelRenderer thighL = model.getCube("Leg");
+        AdvancedModelRenderer kneeL  = model.getCube("Knee");
+        AdvancedModelRenderer ankleL = model.getCube("Ankle");
+        AdvancedModelRenderer footL  = model.getCube("Foot");
 
-        AdvancedModelRenderer handR = model.getCube("Right hand");
-        AdvancedModelRenderer handL = model.getCube("Left hand");
+        AdvancedModelRenderer thighR = model.getCube("Leg2");
+        AdvancedModelRenderer kneeR  = model.getCube("Knee2");
+        AdvancedModelRenderer ankleR = model.getCube("Ankle2");
+        AdvancedModelRenderer footR  = model.getCube("Foot2");
 
-        AdvancedModelRenderer thighR = model.getCube("Right thigh");
-        AdvancedModelRenderer thighL = model.getCube("Left thigh");
+        AdvancedModelRenderer tail2 = model.getCube("Tail2");
+        AdvancedModelRenderer tail3 = model.getCube("Tail3");
+        AdvancedModelRenderer tail4 = model.getCube("Tail4");
+        AdvancedModelRenderer tail5 = model.getCube("Tail5");
+        AdvancedModelRenderer tail6 = model.getCube("Tail6");
+        AdvancedModelRenderer tail7 = model.getCube("Tail7");
 
-        AdvancedModelRenderer lowerThighR = model.getCube("Right shin");
-        AdvancedModelRenderer lowerThighL = model.getCube("Left shin");
+        // chains
+        AdvancedModelRenderer[] neckChain = new AdvancedModelRenderer[]{head, neck5, neck4, neck3, neck2, neck1};
+        AdvancedModelRenderer[] tailChain = new AdvancedModelRenderer[]{tail7, tail6, tail5, tail4, tail3, tail2};
+        AdvancedModelRenderer[] rightArm  = new AdvancedModelRenderer[]{upperArmR};
+        AdvancedModelRenderer[] leftArm   = new AdvancedModelRenderer[]{upperArmL};
 
-        AdvancedModelRenderer upperFootR = model.getCube("Right upper foot");
-        AdvancedModelRenderer upperFootL = model.getCube("Left upper foot");
+        // speeds
+        float walkSpeed = 0.38F;
+        float idleSpeed = 0.10F;
+        float move = limbSwingAmount;
 
-        AdvancedModelRenderer footR = model.getCube("Right foot");
-        AdvancedModelRenderer footL = model.getCube("Left foot");
+        boolean isMoving = move > 0.08F;
 
-        AdvancedModelRenderer[] rightArmParts = new AdvancedModelRenderer[] { handR, lowerArmR, upperArmR };
-        AdvancedModelRenderer[] leftArmParts = new AdvancedModelRenderer[] { handL, lowerArmL, upperArmL };
-        AdvancedModelRenderer[] tailParts = new AdvancedModelRenderer[] { tail5, tail4, tail3, tail2, tail1 };
-        AdvancedModelRenderer[] bodyParts = new AdvancedModelRenderer[] { waist, chest, shoulders, neck4, neck3, neck2, neck1, head };
+        if (isMoving) {
+            model.bob(chest, walkSpeed * 0.5F, 0.25F * move, false, limbSwing, move);
+            model.bob(rear,  walkSpeed * 0.5F, 0.20F * move, true,  limbSwing, move);
+        } else {
+            model.bob(chest, idleSpeed, 0.10F, false, ticks, 1.0F);
+        }
 
-        float globalSpeed = 1.0F;
-        float globalHeight = 2F * f1;
+        model.chainWave(neckChain, idleSpeed, 0.03F, 2, ticks, 1.0F);
 
-        model.bob(thighL, 1F * globalSpeed, 0.3f * globalHeight, false, f, f1);
-        model.bob(thighR, 1F * globalSpeed, 0.3f * globalHeight, false, f, f1);
-     //   model.walk(shoulders, 1F * globalSpeed, 0.2F, true, 1, 0, f, f1);
-     //   model.walk(chest, 1F * globalSpeed, 0.2F, false, 0.5F, 0, f, f1);
+        if (isMoving) {
+            model.chainWave(neckChain, walkSpeed * 0.4F, -0.03F * move, 2, limbSwing, move);
+        }
 
-     //   model.walk(thighL, 0.5F * globalSpeed, 0.7F, false, 3.14F, 0.2F, f, f1);
-    //    model.walk(lowerThighL, 0.5F * globalSpeed, 0.1F, false, 1.5F, 0.3F, f, f1);
-   //     model.walk(upperFootL, 0.5F * globalSpeed, 0.8F, false, -1F, -0.1F, f, f1);
-   //     model.walk(footL, 0.5F * globalSpeed, 1.5F, true, -1F, 1F, f, f1);
+        model.chainSwing(leftArm,  walkSpeed * 0.75F, 0.15F * move, 0, limbSwing, move);
+        model.chainSwing(rightArm, walkSpeed * 0.75F, 0.15F * move, (float)Math.PI, limbSwing, move);
 
-   //     model.walk(thighR, 0.5F * globalSpeed, 0.7F, true, 3.14F, 0.2F, f, f1);
-     //   model.walk(lowerThighR, 0.5F * globalSpeed, 0.1F, true, 1.5F, 0.3F, f, f1);
-    //    model.walk(upperFootR, 0.5F * globalSpeed, 0.8F, true, -1F, -0.1F, f, f1);
-    //    model.walk(footR, 0.5F * globalSpeed, 1.5F, false, -1F, 1F, f, f1);
-
-
-        model.chainSwing(tailParts, 0.5F * globalSpeed, -0.1F, 2, f, f1);
-  //      model.chainWave(tailParts, 1F * globalSpeed, -0.1F, 2.5F, f, f1);
- //       model.chainWave(bodyParts, 1F * globalSpeed, -0.1F, 4, f, f1);
-
-    //    model.chainWave(rightArmParts, 1F * globalSpeed, -0.3F, 4, f, f1);
-   //     model.chainWave(leftArmParts, 1F * globalSpeed, -0.3F, 4, f, f1);
-
-        model.chainWave(tailParts, 0.2F, 0.05F, 2, ticks, 0.25F);
-   //     model.chainWave(bodyParts, 0.2F, -0.03F, 5, ticks, 0.25F);
-        model.chainWave(rightArmParts, 0.2F, -0.1F, 4, ticks, 0.25F);
-        model.chainWave(leftArmParts, 0.2F, -0.1F, 4, ticks, 0.25F);
-
-        entity.tailBuffer.applyChainSwingBuffer(tailParts);
+        if (isMoving) {
+            model.chainSwing(tailChain, walkSpeed * 0.55F, 0.35F * move, 2, limbSwing, move);
+            model.chainWave (tailChain, walkSpeed * 0.40F, 0.18F * move, 2, limbSwing, move);
+        } else {
+            model.chainWave(tailChain, idleSpeed * 0.65F, 0.12F, 2, ticks, 1.0F);
+        }
     }
 }

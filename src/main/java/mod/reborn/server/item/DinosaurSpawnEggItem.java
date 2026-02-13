@@ -66,6 +66,7 @@ public class DinosaurSpawnEggItem extends Item {
                     entity.setAge(0);
                 }
 
+                entity.enablePersistence();
                 entity.setPosition(x, y, z);
                 entity.setLocationAndAngles(x, y, z, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
                 entity.rotationYawHead = entity.rotationYaw;

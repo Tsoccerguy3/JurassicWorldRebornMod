@@ -15,7 +15,7 @@ public class MawsoniaEntity extends SwimmingDinosaurEntity {
 
 	public MawsoniaEntity(World world) {
 		super(world);
-        this.target(AlligatorGarEntity.class, BeelzebufoEntity.class, CrassigyrinusEntity.class, DiplocaulusEntity.class, EntityPlayer.class, MegapiranhaEntity.class, EntityVillager.class, EntityAnimal.class, EntityMob.class);
+        this.target(AlligatorGarEntity.class, BeelzebufoEntity.class, CrassigyrinusEntity.class, DiplocaulusEntity.class, CalymeneEntity.class, EntityPlayer.class, MegapiranhaEntity.class, EntityVillager.class, EntityAnimal.class, EntityMob.class);
 	}
 
 	  protected void applyEntityAttributes()

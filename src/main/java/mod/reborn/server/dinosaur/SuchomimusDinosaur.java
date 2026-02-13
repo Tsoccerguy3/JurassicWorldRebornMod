@@ -12,7 +12,6 @@ public class SuchomimusDinosaur extends Dinosaur {
     public static final double SPEED = 0.4F;
     public SuchomimusDinosaur() {
         super();
-
         this.setName("Suchomimus");
         this.setDinosaurType(DinosaurType.AGGRESSIVE);
         this.setDinosaurClass(SuchomimusEntity.class);
@@ -22,6 +21,7 @@ public class SuchomimusDinosaur extends Dinosaur {
         this.setHealth(10, 45);
         this.setSpeed((SPEED -0.05), SPEED);
         this.setStorage(27);
+        this.setMarineAnimal(true);
         this.setStrength(5, 30);
         this.setMaximumAge(fromDays(45));
         this.setEyeHeight(0.35F, 3.1F);

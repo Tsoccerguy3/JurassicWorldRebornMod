@@ -1,10 +1,12 @@
+
 package mod.reborn.client.model.animation.entity;
 
+
+import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
 import mod.reborn.client.model.AnimatableModel;
 import mod.reborn.client.model.animation.EntityAnimator;
-import mod.reborn.server.entity.dinosaur.PteranodonEntity;
 import mod.reborn.server.entity.dinosaur.QuetzalEntity;
-import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -53,7 +55,7 @@ public class QuetzalAnimator extends EntityAnimator<QuetzalEntity>
         float globalHeight = 2F;
         float frontOffset = -1.35f;
 
-        if (entity.isOnGround() && !entity.isCarcass()) {
+        if (entity.onGround && !entity.isCarcass()) {
         } else {
             if(!entity.isCarcass()) {
                 body1.rotateAngleX += 0.3;

@@ -2,10 +2,16 @@
 	"version": 0,
 	"poses": {
 		"IDLE": [
-		  {
-			"pose": "apatosaurus_skeleton_idle",
-			"time": 1
-		  }
+			{
+				"pose": "apatosaurus_skeleton_idle",
+				"time": 1
+			}
+		],
+		"LOOKING_RIGHT": [
+			{
+				"pose": "apatosaurus_skeleton_look_right",
+				"time": 1
+			}
 		]
 	}
 }

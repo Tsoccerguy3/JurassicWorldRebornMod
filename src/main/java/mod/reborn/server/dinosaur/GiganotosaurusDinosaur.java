@@ -1,6 +1,7 @@
 package mod.reborn.server.dinosaur;
 
 
+
 import mod.reborn.server.entity.Diet;
 import mod.reborn.server.entity.dinosaur.GiganotosaurusEntity;
 import mod.reborn.server.period.TimePeriod;
@@ -12,8 +13,7 @@ import java.util.ArrayList;
 public class GiganotosaurusDinosaur extends Dinosaur
 {
     public static final double SPEED = 0.4F;
-    public GiganotosaurusDinosaur()
-    {
+    public GiganotosaurusDinosaur() {
         super();
         this.setName("Giganotosaurus");
         this.setDinosaurType(DinosaurType.AGGRESSIVE);
@@ -29,11 +29,11 @@ public class GiganotosaurusDinosaur extends Dinosaur
         this.setSizeY(0.5F, 3.6F);
         this.setMaximumAge(fromDays(60));
         this.setStorage(54);
-        this.setAttackSpeed(2);
+        this.setAttackSpeed(1.4);
         this.setDiet((Diet.CARNIVORE.get()));
         this.setBones("skull", "tooth", "neck_vertebrae", "pelvis", "ribcage", "shoulder", "leg_bones", "arm_bones", "tail_vertebrae", "foot_bones", "claw");
         this.setHeadCubeName("Head");
-        this.setScale(2.37F, 0.1F);
+        this.setScale(1.47F, 0.1F);
         this.shouldDefendOffspring();
         this.setAttackBias(280);
         this.setBreeding(false, 2, 6, 70, false, true);
@@ -49,5 +49,6 @@ public class GiganotosaurusDinosaur extends Dinosaur
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.PLAINS));
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST));
         this.setSpawn(1, biomeList.toArray(new Biome[biomeList.size()]));
+        this.init();
     }
 }

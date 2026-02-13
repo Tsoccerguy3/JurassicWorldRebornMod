@@ -120,8 +120,19 @@ public class EntityHandler {
     public static final Dinosaur CAMARASAURUS=new CamarasaurusDinosaur();
     public static final Dinosaur DIMETRODON=new DimetrodonDinosaur();
     public static final Dinosaur PARACERATHERIUM=new ParaceratheriumDinosaur();
-
     public static final Dinosaur VECTIPELTA=new VectipeltaDinosaur();
+    public static final Dinosaur KAIRUKU = new KairukuDinosaur();
+    public static final Dinosaur CALYMENE = new CalymeneDinosaur();
+    public static final Dinosaur MEGALODON = new MegalodonDinosaur();
+    public static final Dinosaur LIVYATAN = new LivyatanDinosaur();
+    public static final Dinosaur PATAGOTITAN = new PatagotitanDinosaur();
+    public static final Dinosaur MAIASAURA = new MaiasauraDinosaur();
+    public static final Dinosaur DEINOSUCHUS = new DeinosuchusDinosaur();
+    public static final Dinosaur NIGERSAURUS = new NigersaurusDinosaur();
+    public static final Dinosaur ENDOCERAS = new EndocerasDinosaur();
+    public static final Dinosaur ORTHOCERAS = new OrthocerasDinosaur();
+    public static final Dinosaur CAMEROCERAS = new CamerocerasDinosaur();
+
 
     private static final Map<Integer, Dinosaur> DINOSAURS = new HashMap<>();
     private static final Map<Dinosaur, Integer> DINOSAUR_IDS = new HashMap<>();
@@ -250,7 +261,17 @@ public class EntityHandler {
         registerDinosaur(95,PARAPUZOSIA);
         registerDinosaur(96,VECTIPELTA);
         registerDinosaur(97,PARACERATHERIUM);
-
+        registerDinosaur(98, KAIRUKU);
+        registerDinosaur(99, CALYMENE);
+        registerDinosaur(100, MEGALODON);
+        registerDinosaur(101, LIVYATAN);
+        registerDinosaur(102, PATAGOTITAN);
+        registerDinosaur(103, MAIASAURA);
+        registerDinosaur(104, DEINOSUCHUS);
+        registerDinosaur(105, NIGERSAURUS);
+        registerDinosaur(106, ENDOCERAS);
+        registerDinosaur(107, ORTHOCERAS);
+        registerDinosaur(108, CAMEROCERAS);
 
 
         dinosaurProgress = ProgressManager.push("Loading dinosaurs", DINOSAURS.size());

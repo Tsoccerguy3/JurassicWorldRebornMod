@@ -15,7 +15,6 @@ public class SpinoraptorDinosaur extends Dinosaur implements Hybrid
     public SpinoraptorDinosaur()
     {
         super();
-
         this.setName("Spinoraptor");
         this.setDinosaurType(DinosaurType.AGGRESSIVE);
         this.setDinosaurClass(SpinoraptorEntity.class);
@@ -27,6 +26,7 @@ public class SpinoraptorDinosaur extends Dinosaur implements Hybrid
         this.setAttackSpeed(1.5);
         this.setStrength(2, 25);
         this.setMaximumAge(fromDays(30));
+        this.setMarineAnimal(true);
         this.setEyeHeight(0.15F, 3.4F);
         this.setSizeX(0.2F, 2.8F);
         this.setSizeY(0.2F, 3.6F);

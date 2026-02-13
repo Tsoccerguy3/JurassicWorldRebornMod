@@ -30,6 +30,7 @@ public class DinosaurEggEntity extends Entity implements IEntityAdditionalSpawnD
         this.entity = entity;
         this.dinosaur = entity.getDinosaur();
         this.parent = parent.getUniqueID();
+        this.entity.enablePersistence();
     }
 
     public DinosaurEggEntity(World world) {
@@ -105,6 +106,7 @@ public class DinosaurEggEntity extends Entity implements IEntityAdditionalSpawnD
         if(dinosaur != null && this.entity != null) {
             try {
                 this.entity.setPosition(this.posX, this.posY, this.posZ);
+                this.entity.enablePersistence();
                 this.world.spawnEntity(this.entity);
                 this.entity.playLivingSound();
                 this.setDead();
@@ -133,6 +135,9 @@ public class DinosaurEggEntity extends Entity implements IEntityAdditionalSpawnD
         this.hatchTime = compound.getInteger("HatchTime");
         NBTTagCompound entityTag = compound.getCompoundTag("Hatchling");
         this.entity = (DinosaurEntity) EntityList.createEntityFromNBT(entityTag, this.world);
+        if (this.entity != null) {
+            this.entity.enablePersistence();
+        }
         this.parent = compound.getUniqueId("Parent");
         this.dinosaur = EntityHandler.getDinosaurById(compound.getInteger("DinosaurID"));
     }

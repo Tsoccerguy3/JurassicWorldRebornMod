@@ -9,6 +9,6 @@ public class CrassigyrinusEntity extends SwimmingDinosaurEntity {
 
     public CrassigyrinusEntity(World world) {
         super(world);
-        this.target(AlligatorGarEntity.class, BeelzebufoEntity.class, DiplocaulusEntity.class, MegapiranhaEntity.class, EntityAnimal.class);
+        this.target(AlligatorGarEntity.class, BeelzebufoEntity.class, DiplocaulusEntity.class, CalymeneEntity.class, MegapiranhaEntity.class, EntityAnimal.class);
     }
 }

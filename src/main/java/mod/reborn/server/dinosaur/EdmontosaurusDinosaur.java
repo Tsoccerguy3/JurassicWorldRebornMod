@@ -2,7 +2,7 @@ package mod.reborn.server.dinosaur;
 
 
 import mod.reborn.server.entity.Diet;
-import mod.reborn.server.entity.dinosaur.EdmontosaurusEntity;
+import mod.reborn.server.entity.dinosaur.*;
 import mod.reborn.server.period.TimePeriod;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -15,12 +15,11 @@ public class EdmontosaurusDinosaur extends Dinosaur
     public EdmontosaurusDinosaur()
     {
         super();
-
         this.setName("Edmontosaurus");
         this.setDinosaurType(DinosaurType.PASSIVE);
         this.setDinosaurClass(EdmontosaurusEntity.class);
         this.setTimePeriod(TimePeriod.CRETACEOUS);
-        this.setEggColorMale(0xB97840, 0x644329);
+        this.setEggColorMale(0x8F8039, 0x55b0b8);
         this.setEggColorFemale(0x8F8039, 0x615A30);
         this.setHealth(10, 60);
         this.setStrength(5, 20);
@@ -33,8 +32,7 @@ public class EdmontosaurusDinosaur extends Dinosaur
         this.setDiet((Diet.HERBIVORE.get()));
         this.setBones("cheek_teeth", "pelvis", "skull", "front_leg_bones", "hind_leg_bones", "ribcage", "shoulder", "tail_vertebrae", "neck_vertebrae");
         this.setHeadCubeName("Head");
-        this.setScale(2.65F, 0.1F);
-        this.setOffset(0.0F, 0.775F, 0.0F);
+        this.setScale(1.0F, 0.05F);
         this.setAttackBias(80);
         this.setImprintable(true);
         this.setDefendOwner(true);
@@ -52,5 +50,6 @@ public class EdmontosaurusDinosaur extends Dinosaur
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.PLAINS));
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.MESA));
         this.setSpawn(1, biomeList.toArray(new Biome[biomeList.size()]));
+this.init();
     }
 }

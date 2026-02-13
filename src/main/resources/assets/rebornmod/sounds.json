@@ -148,7 +148,7 @@
   "dunkleosteus_call": {
     "category": "hostile",
     "sounds": [
-      "rebornmod:dinosaurs/dunkleosteus/dunkleosteus_calling"
+      "rebornmod:dinosaurs/dunkleosteus/dunkleosteus_living_1"
     ]
 },
   "therizinosaurus_living": {
@@ -244,7 +244,33 @@
     "sounds": [
       "rebornmod:dinosaurs/camarasaurus/camarasaurus_hurt"
     ]
-},
+  },
+  "nigersaurus_living": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/nigersaurus/nigersaurus_living_1",
+      "rebornmod:dinosaurs/nigersaurus/nigersaurus_living_2",
+      "rebornmod:dinosaurs/nigersaurus/nigersaurus_living_3"
+    ]
+  },
+  "nigersaurus_death": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/nigersaurus/nigersaurus_death"
+    ]
+  },
+  "nigersaurus_attack": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/nigersaurus/nigersaurus_attacking"
+    ]
+  },
+  "nigersaurus_hurt": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/nigersaurus/nigersaurus_hurt"
+    ]
+  },
   "ankylodocus_living": {
     "category": "hostile",
     "sounds": [
@@ -1139,7 +1165,7 @@
   "giganotosaurus_call": {
     "category": "hostile",
     "sounds": [
-      "rebornmod:dinosaurs/giganotosaurus/giganotosaurus_calling"
+      "rebornmod:dinosaurs/giganotosaurus/giganotosaurus_living_3"
     ]
  },
   "giganotosaurus_roar": {
@@ -1191,6 +1217,92 @@
         "sounds": [
             "rebornmod:dinosaurs/edmontosaurus/edmontosaurus_threat"
         ]
+    },
+  "maiasaura_living": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/maiasaura/maiasaura_living_1",
+      "rebornmod:dinosaurs/maiasaura/maiasaura_living_2",
+      "rebornmod:dinosaurs/maiasaura/maiasaura_living_3",
+      "rebornmod:dinosaurs/maiasaura/maiasaura_living_4"
+    ]
+  },
+  "maiasaura_death": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/maiasaura/maiasaura_death_1",
+      "rebornmod:dinosaurs/maiasaura/maiasaura_death_2",
+      "rebornmod:dinosaurs/maiasaura/maiasaura_death_3"
+    ]
+  },
+  "maiasaura_hurt": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/maiasaura/maiasaura_hurt_1",
+      "rebornmod:dinosaurs/maiasaura/maiasaura_hurt_2"
+    ]
+  },
+  "maiasaura_call": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/maiasaura/maiasaura_calling"
+    ]
+  },
+  "maiasaura_threat":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/maiasaura/maiasaura_threat"
+    ]
+  },
+  "kairuku_living": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/kairuku/kairuku_living_1",
+      "rebornmod:dinosaurs/kairuku/kairuku_living_2"
+    ]
+  },
+  "kairuku_death": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/kairuku/kairuku_death"
+    ]
+  },
+  "kairuku_hurt": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/kairuku/kairuku_injured"
+    ]
+  },
+  "kairuku_call": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/kairuku/kairuku_calling"
+    ]
+  },
+  "livyatan_living": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/livyatan/livyatan_living_1",
+      "rebornmod:dinosaurs/livyatan/livyatan_living_2"
+    ]
+  },
+  "livyatan_death": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/livyatan/livyatan_death"
+    ]
+  },
+  "livyatan_hurt": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/livyatan/livyatan_injured"
+    ]
+  },
+  "livyatan_call": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/livyatan/livyatan_calling"
+    ]
  },
   "compsognathus_living": {
     "category": "hostile",
@@ -1556,6 +1668,12 @@
     "sounds": [
       "rebornmod:dinosaurs/ankylosaurus/ankylosaurus_attack"
     ]
+ },
+  "ankylosaurus_death": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/ankylosaurus/ankylosaurus_death_1"
+    ]
   },
   "ankylosaurus_living": {
     "category": "hostile",
@@ -1597,6 +1715,12 @@
     "category": "hostile",
     "sounds": [
       "rebornmod:dinosaurs/vectipelta/vectipelta_attack"
+    ]
+ },
+  "vectipelta_death": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/vectipelta/vectipelta_death_1"
     ]
   },
   "vectipelta_living": {
@@ -1702,7 +1826,7 @@
   "apatosaurus_call": {
     "category": "hostile",
     "sounds": [
-      "rebornmod:dinosaurs/apatosaurus/apatosaurus_call"
+      "rebornmod:dinosaurs/apatosaurus/apatosaurus_living_4"
     ]
   },
     "apatosaurus_threat":{
@@ -2700,6 +2824,43 @@
       "rebornmod:dinosaurs/postosuchus/postosuchus_death_2"
     ]
   },
+  "deinosuchus_attack":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/deinosuchus/deinosuchus_attack"
+    ]
+  },
+  "deinosuchus_death":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/deinosuchus/deinosuchus_death"
+    ]
+  },
+  "deinosuchus_living":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/deinosuchus/deinosuchus_living_1",
+      "rebornmod:dinosaurs/deinosuchus/deinosuchus_living_2"
+    ]
+  },
+  "deinosuchus_call":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/deinosuchus/deinosuchus_call"
+    ]
+  },
+  "deinosuchus_death_roll":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/deinosuchus/deinosuchus_death_roll"
+    ]
+  },
+  "deinosuchus_injured":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/deinosuchus/deinosuchus_injured"
+    ]
+  },
   "goat_death": {
     "category": "hostile",
     "sounds": [
@@ -2847,6 +3008,49 @@
     "sounds": [
       "rebornmod:dinosaurs/dreadnoughtus/dreadnoughtus_threat"
     ]
+  },
+  "patagotitan_death":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/patagotitan/patagotitan_death"
+    ]
+  },
+  "patagotitan_hurt":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/patagotitan/patagotitan_hurt_1",
+      "rebornmod:dinosaurs/patagotitan/patagotitan_hurt_2",
+      "rebornmod:dinosaurs/patagotitan/patagotitan_hurt_3"
+    ]
+  },
+  "patagotitan_call":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/patagotitan/patagotitan_calling"
+    ]
+  },
+  "patagotitan_mate_call": {
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/patagotitan/patagotitan_mate_call"
+    ]
+  },
+  "patagotitan_living":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/patagotitan/patagotitan_living_1",
+      "rebornmod:dinosaurs/patagotitan/patagotitan_living_2",
+      "rebornmod:dinosaurs/patagotitan/patagotitan_living_3",
+      "rebornmod:dinosaurs/patagotitan/patagotitan_living_4",
+      "rebornmod:dinosaurs/patagotitan/patagotitan_living_5",
+      "rebornmod:dinosaurs/patagotitan/patagotitan_living_6"
+    ]
+  },
+  "patagotitan_threat":{
+    "category": "hostile",
+    "sounds": [
+      "rebornmod:dinosaurs/patagotitan/patagotitan_threat"
+    ]
  },
   "spinoraptor_hurt": {
     "category": "hostile",
@@ -2886,7 +3090,7 @@
   "spinoraptor_death": {
     "category": "hostile",
     "sounds": [
-      "rebornmod:dinosaurs/spinoraptor/spinoraptor_death"
+      "rebornmod:dinosaurs/spinoraptor/spinoraptor_death_1"
     ]
   }
 }

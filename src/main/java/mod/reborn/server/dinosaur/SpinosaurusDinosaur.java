@@ -14,7 +14,6 @@ public class SpinosaurusDinosaur extends Dinosaur
     public SpinosaurusDinosaur()
     {
         super();
-
         this.setName("Spinosaurus");
         this.setDinosaurType(DinosaurType.AGGRESSIVE);
         this.setDinosaurClass(SpinosaurusEntity.class);
@@ -28,6 +27,7 @@ public class SpinosaurusDinosaur extends Dinosaur
         this.setEyeHeight(0.3F, 3.5F);
         this.setSizeX(0.2F, 2.7F);
         this.setSizeY(0.3F, 3.6F);
+        this.setMarineAnimal(true);
         this.setStorage(54);
         this.setDiet((Diet.PCARNIVORE.get()));
         this.setBones("skull", "tooth", "arm_bones", "claw", "foot_bones", "leg_bones", "neck_vertebrae", "ribcage", "shoulder", "tail_vertebrae", "pelvis");

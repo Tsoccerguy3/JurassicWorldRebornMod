@@ -1,8 +1,11 @@
+
 package mod.reborn.client.model.animation.entity;
 
+
+import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
 import mod.reborn.client.model.AnimatableModel;
 import mod.reborn.client.model.animation.EntityAnimator;
-import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import mod.reborn.server.entity.dinosaur.VelociraptorEntity;
@@ -57,7 +60,8 @@ public class VelociraptorAnimator extends EntityAnimator<VelociraptorEntity> {
         model.chainWave(rightArmParts, 0.1F, -0.1F, 4, ticks, 0.25F);
         model.chainWave(leftArmParts, 0.1F, -0.1F, 4, ticks, 0.25F);
 
-        model.faceTarget(rotationYaw, rotationPitch, 2.0F, neck1, head);
+        if(!entity.isAIDisabled())
+            model.faceTarget(rotationYaw, rotationPitch, 2.0F, neck1, head);
 
         entity.tailBuffer.applyChainSwingBuffer(tailParts);
     }

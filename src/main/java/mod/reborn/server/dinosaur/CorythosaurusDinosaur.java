@@ -2,7 +2,7 @@ package mod.reborn.server.dinosaur;
 
 
 import mod.reborn.server.entity.Diet;
-import mod.reborn.server.entity.dinosaur.CorythosaurusEntity;
+import mod.reborn.server.entity.dinosaur.*;
 import mod.reborn.server.period.TimePeriod;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -15,7 +15,6 @@ public class CorythosaurusDinosaur extends Dinosaur
     public CorythosaurusDinosaur()
     {
         super();
-
         this.setName("Corythosaurus");
         this.setDinosaurType(DinosaurType.PASSIVE);
         this.setDinosaurClass(CorythosaurusEntity.class);
@@ -35,8 +34,7 @@ public class CorythosaurusDinosaur extends Dinosaur
         this.setDiet((Diet.HERBIVORE.get()));
         this.setBones("cheek_teeth", "front_leg_bones", "neck_vertebrae","hind_leg_bones", "pelvis", "shoulder", "skull", "tail_vertebrae", "ribcage");
         this.setHeadCubeName("Head");
-        this.setScale(2.2F, 0.1F);
-        this.setOffset(0.0F, 0.775F, 0.0F);
+        this.setScale(1.0F, 0.05F);
         this.setImprintable(true);
         this.setFlockSpeed(1.5F);
         this.setBreeding(false, 2, 6, 40, false, true);
@@ -52,5 +50,6 @@ public class CorythosaurusDinosaur extends Dinosaur
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.PLAINS));
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.MESA));
         this.setSpawn(1, biomeList.toArray(new Biome[biomeList.size()]));
+        this.init();
     }
 }

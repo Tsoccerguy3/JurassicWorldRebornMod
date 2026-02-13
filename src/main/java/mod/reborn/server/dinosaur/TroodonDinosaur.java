@@ -1,13 +1,15 @@
 package mod.reborn.server.dinosaur;
 
 
+import mod.reborn.server.entity.dinosaur.*;
+import java.util.ArrayList;
 import mod.reborn.server.entity.Diet;
 import mod.reborn.server.entity.SleepTime;
 import mod.reborn.server.entity.dinosaur.TroodonEntity;
 import mod.reborn.server.period.TimePeriod;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
-import java.util.ArrayList;
+
 
 public class TroodonDinosaur extends Dinosaur
 {
@@ -15,7 +17,6 @@ public class TroodonDinosaur extends Dinosaur
     public TroodonDinosaur()
     {
         super();
-
         this.setName("Troodon");
         this.setDinosaurType(DinosaurType.AGGRESSIVE);
         this.setDinosaurClass(TroodonEntity.class);
@@ -35,7 +36,7 @@ public class TroodonDinosaur extends Dinosaur
         this.setBones("arm_bones", "foot_bones", "leg_bones", "neck_vertebrae", "pelvis", "ribcage", "shoulder", "skull", "tail_vertebrae", "tooth");
         this.setHeadCubeName("head UPPER");
         this.setAttackBias(600);
-        this.setScale(0.75F, 0.15F);
+        this.setScale(0.25F, 0.05F);
         this.setOffset(0.0F, 0.0F, 0.5F);
         this.setAttackSpeed(1.2F);
         this.shouldDefendOffspring();
@@ -58,5 +59,6 @@ public class TroodonDinosaur extends Dinosaur
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.JUNGLE));
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.CONIFEROUS));
         this.setSpawn(1, biomeList.toArray(new Biome[biomeList.size()]));
+this.init();
     }
 }

@@ -31,6 +31,8 @@ import java.util.*;
 
 
 public class DisplayBlockItem extends Item {
+    private static final String SKELETON_POSE_TAG = "SkeletonPose";
+
     public DisplayBlockItem() {
         super();
         this.setCreativeTab(TabHandler.DECORATIONS);
@@ -69,7 +71,10 @@ public class DisplayBlockItem extends Item {
                 DisplayBlockEntity tile = (DisplayBlockEntity) world.getTileEntity(pos);
 
                 if (tile != null) {
-                    tile.setDinosaur(this.getDinosaurID(stack), mode > 0 ? mode == 1 : world.rand.nextBoolean(), this.isSkeleton(stack));
+                    boolean isSkeleton = this.isSkeleton(stack);
+                    boolean isFossile = isSkeleton && mode == 1;
+                    byte poseIndex = isSkeleton ? (byte) this.getNormalizedPoseIndex(stack, this.getDinosaur(stack)) : 0;
+                    tile.setDinosaur(this.getDinosaurID(stack), mode > 0 ? mode == 1 : world.rand.nextBoolean(), isSkeleton, isFossile, poseIndex);
                     tile.setRot(180 - (int) player.getRotationYawHead());
                     world.notifyBlockUpdate(pos, state, state, 0);
                     tile.markDirty();
@@ -145,7 +150,15 @@ public class DisplayBlockItem extends Item {
     public void addInformation(ItemStack stack, World world, List<String> lore, ITooltipFlag tooltipFlag) {
         if (!this.isSkeleton(stack)) {
             lore.add(TextFormatting.BLUE + I18n.format("lore.change_gender.name"));
+            return;
         }
+        Dinosaur dinosaur = this.getDinosaur(stack);
+        List<String> poses = SkeletonPoseHelper.getPoseNames(dinosaur);
+        int poseIndex = this.getNormalizedPoseIndex(stack, dinosaur);
+        if (!poses.isEmpty()) {
+            lore.add(TextFormatting.YELLOW + LangUtils.translate("pose.name") + ": " + formatPoseName(poses.get(poseIndex)));
+        }
+        lore.add(TextFormatting.WHITE + LangUtils.translate("lore.change_variant.name"));
     }
 
     @Override
@@ -158,6 +171,58 @@ public class DisplayBlockItem extends Item {
             }
             return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         }
-        return new ActionResult<>(EnumActionResult.PASS, stack);
+        int poseIndex = this.cycleSkeletonPose(stack);
+        if (world.isRemote) {
+            Dinosaur dinosaur = this.getDinosaur(stack);
+            List<String> poses = SkeletonPoseHelper.getPoseNames(dinosaur);
+            if (!poses.isEmpty()) {
+                player.sendMessage(new TextComponentString(TextFormatting.BLUE + LangUtils.translate("pose.name") + ": " + formatPoseName(poses.get(poseIndex))));
+            }
+        }
+        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+    }
+
+    private int getPoseIndex(ItemStack stack) {
+        NBTTagCompound tag = stack.getTagCompound();
+        if (tag == null || !tag.hasKey(SKELETON_POSE_TAG)) {
+            return 0;
+        }
+        return Math.max(0, tag.getInteger(SKELETON_POSE_TAG));
+    }
+
+    private void setPoseIndex(ItemStack stack, int poseIndex) {
+        NBTTagCompound tag = stack.getTagCompound();
+        if (tag == null) {
+            tag = new NBTTagCompound();
+        }
+        tag.setInteger(SKELETON_POSE_TAG, poseIndex);
+        stack.setTagCompound(tag);
+    }
+
+    private int cycleSkeletonPose(ItemStack stack) {
+        Dinosaur dinosaur = this.getDinosaur(stack);
+        List<String> poses = SkeletonPoseHelper.getPoseNames(dinosaur);
+        int size = Math.max(1, poses.size());
+        int next = (this.getPoseIndex(stack) + 1) % size;
+        this.setPoseIndex(stack, next);
+        return next;
+    }
+
+    private int getNormalizedPoseIndex(ItemStack stack, Dinosaur dinosaur) {
+        List<String> poses = SkeletonPoseHelper.getPoseNames(dinosaur);
+        int size = Math.max(1, poses.size());
+        int index = this.getPoseIndex(stack) % size;
+        if (index < 0) {
+            index = 0;
+        }
+        return index;
+    }
+
+    private String formatPoseName(String poseName) {
+        if (poseName == null || poseName.isEmpty()) {
+            return "";
+        }
+        String formatted = poseName.replace('_', ' ').toLowerCase(Locale.ENGLISH);
+        return Character.toUpperCase(formatted.charAt(0)) + formatted.substring(1);
     }
 }

@@ -1,12 +1,13 @@
 package mod.reborn.server.dinosaur;
 
+import mod.reborn.server.entity.dinosaur.*;
+import java.util.ArrayList;
 import mod.reborn.server.entity.Diet;
 import mod.reborn.server.entity.SleepTime;
 import mod.reborn.server.entity.dinosaur.TherizinosaurusEntity;
 import mod.reborn.server.period.TimePeriod;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
-import java.util.ArrayList;
 
 public class TherizinosaurusDinosaur extends Dinosaur
 {
@@ -33,8 +34,7 @@ public class TherizinosaurusDinosaur extends Dinosaur
         this.setSleepTime(SleepTime.DIURNAL);
         this.setBones("skull", "teeth", "ribcage", "arm_bones", "claw", "foot_bones", "leg_bones", "neck_vertebrae", "pelvis", "shoulder", "tail_vertebrae");
         this.setHeadCubeName("Head");
-        this.setScale(3.5F, 0.1F);
-        this.setOffset(0.0F, 1.0F, 0.0F);
+        this.setScale(1.0F, 0.1F);
         this.setAttackSpeed(1);
         this.setAttackBias(800);
         this.shouldDefendOffspring();
@@ -54,5 +54,6 @@ public class TherizinosaurusDinosaur extends Dinosaur
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.SAVANNA));
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.MESA));
         this.setSpawn(1, biomeList.toArray(new Biome[biomeList.size()]));
+this.init();
     }
 }

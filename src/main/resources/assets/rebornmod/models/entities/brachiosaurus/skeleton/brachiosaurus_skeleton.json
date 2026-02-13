@@ -6,6 +6,12 @@
 			"pose": "brachiosaurus_skeleton_idle",
 			"time": 1
 		  }
+		],
+		"LOOKING_RIGHT": [
+			{
+				"pose": "brachiosaurus_skeleton_look_right",
+				"time": 1
+			}
 		]
 	}
 }

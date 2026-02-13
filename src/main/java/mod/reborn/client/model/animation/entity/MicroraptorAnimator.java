@@ -1,10 +1,13 @@
+
 package mod.reborn.client.model.animation.entity;
 
-import mod.reborn.client.model.AnimatableModel;
-import mod.reborn.client.model.animation.EntityAnimation;
-import mod.reborn.client.model.animation.EntityAnimator;
+
 import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
-import net.minecraft.client.renderer.GlStateManager;
+import mod.reborn.client.model.AnimatableModel;
+//import mod.reborn.client.model.animation.EntityAnimation;
+import mod.reborn.client.model.animation.EntityAnimator;
+
+//import net.minecraft.client.renderer.GlStateManager;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import mod.reborn.server.entity.dinosaur.MicroraptorEntity;
@@ -13,9 +16,9 @@ import mod.reborn.server.entity.dinosaur.MicroraptorEntity;
 public class MicroraptorAnimator extends EntityAnimator<MicroraptorEntity> {
     @Override
     protected void performAnimations(AnimatableModel model, MicroraptorEntity entity, float limbSwing, float limbSwingAmount, float ticks, float rotationYaw, float rotationPitch, float scale) {
-        if (entity.getAnimation() == EntityAnimation.GLIDING.get()) {
-            GlStateManager.rotate(rotationPitch, 1.0F, 0.0F, 0.0F);
-        }
+//        if (entity.getAnimation() == EntityAnimation.GLIDING.get()) {
+//            GlStateManager.rotate(rotationPitch, 1.0F, 0.0F, 0.0F);
+//        }//mf what - gamma
 
         AdvancedModelRenderer upperArmRight = model.getCube("RightArm1");
         AdvancedModelRenderer lowerArmRight = model.getCube("RightArm2");

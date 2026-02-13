@@ -25,6 +25,7 @@ public class BaryonyxDinosaur extends Dinosaur
         this.setSpeed((SPEED -0.05), SPEED);
         this.setAttackSpeed(1.6);
         this.setStrength(1, 10);
+        this.setMarineAnimal(true);
         this.setMaximumAge(fromDays(55));
         this.setEyeHeight(0.45F, 2.85F);
         this.setSizeX(0.3F, 1.5F);

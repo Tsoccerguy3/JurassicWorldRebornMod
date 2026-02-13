@@ -15,8 +15,12 @@ import mod.reborn.RebornMod;
 import mod.reborn.server.dinosaur.Dinosaur;
 import mod.reborn.server.entity.DinosaurEntity;
 import mod.reborn.server.entity.GrowthStage;
+import mod.reborn.server.item.SkeletonPoseHelper;
 import mod.reborn.server.tabula.TabulaModelHelper;
+import net.ilexiconn.llibrary.client.model.tabula.container.TabulaModelContainer;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 @SideOnly(Side.CLIENT)
@@ -39,7 +43,7 @@ public class DinosaurRenderInfo implements IRenderFactory<DinosaurEntity> {
     private final AnimatableModel modelInfant;
     private final AnimatableModel modelJuvenile;
     private final AnimatableModel modelAdolescent;
-    private final AnimatableModel modelSkeleton;
+    private final List<AnimatableModel> modelSkeletons;
     private TabulaModel eggModel;
     private ResourceLocation eggTexture;
     private float shadowSize = 0.65F;
@@ -53,7 +57,7 @@ public class DinosaurRenderInfo implements IRenderFactory<DinosaurEntity> {
         this.modelInfant = this.loadModel(GrowthStage.INFANT);
         this.modelJuvenile = this.loadModel(GrowthStage.JUVENILE);
         this.modelAdolescent = this.loadModel(GrowthStage.ADOLESCENT);
-        this.modelSkeleton = this.loadModel(GrowthStage.SKELETON);
+        this.modelSkeletons = this.loadSkeletonModels();
 
         try {
             String name = dinosaur.getName().toLowerCase(Locale.ENGLISH);
@@ -74,7 +78,11 @@ public class DinosaurRenderInfo implements IRenderFactory<DinosaurEntity> {
             case ADOLESCENT:
                 return this.modelAdolescent;
             case SKELETON:
-                return this.modelSkeleton;
+                int idx = skeletonVariant & 0xFF;
+                if (idx >= this.modelSkeletons.size()) {
+                    idx = 0;
+                }
+                return this.modelSkeletons.get(idx);
             default:
                 return this.modelAdult;
         }
@@ -104,6 +112,15 @@ public class DinosaurRenderInfo implements IRenderFactory<DinosaurEntity> {
             return this.getModelAdult();
         }
         return new AnimatableModel(this.dinosaur.getModelContainer(stage), this.getModelAnimator(stage));
+    }
+
+    private List<AnimatableModel> loadSkeletonModels() {
+        List<AnimatableModel> models = new ArrayList<>();
+        List<TabulaModelContainer> containers = SkeletonPoseHelper.getPoseModels(this.dinosaur);
+        for (TabulaModelContainer container : containers) {
+            models.add(new AnimatableModel(container, null));
+        }
+        return models;
     }
 
     public Dinosaur getDinosaur() {

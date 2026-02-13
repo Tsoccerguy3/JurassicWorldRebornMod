@@ -1,8 +1,11 @@
+
 package mod.reborn.client.model.animation.entity;
 
+
+import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
 import mod.reborn.client.model.AnimatableModel;
 import mod.reborn.client.model.animation.EntityAnimator;
-import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import mod.reborn.server.entity.dinosaur.CarnotaurusEntity;
@@ -69,8 +72,6 @@ public class CarnotaurusAnimator extends EntityAnimator<CarnotaurusEntity>
 
         model.bob(hips, globalSpeed * 1.0F, globalHeight * 0.0F, false, f, f1);
 
-        model.bob(leftThigh, globalSpeed * 1.0F, globalHeight * 0.0F, false, f, f1);
-        model.bob(rightThigh, globalSpeed * 1.0F, globalHeight * 0.0F, false, f, f1);
 
         model.chainWave(body, globalSpeed * 1.0F, globalHeight * 0.00F, 3, f, f1);
         model.chainWave(tail, globalSpeed * 1.0F, globalHeight * -0.00F, 2, f, f1);
@@ -85,6 +86,7 @@ public class CarnotaurusAnimator extends EntityAnimator<CarnotaurusEntity>
         model.chainWave(body, 0.1F, 0.00F, 5, ticks, 0.25F);
         model.chainWave(armRight, 0.1F, 0.1F, 4, ticks, 0.25F);
         model.chainWave(armLeft, 0.1F, 0.1F, 4, ticks, 0.25F);
+        model.chainSwing(tail, 0.1F, 0.20F, -2, ticks, 1.0F);
 
         entity.tailBuffer.applyChainSwingBuffer(tail);
     }

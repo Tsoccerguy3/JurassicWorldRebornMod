@@ -109,6 +109,17 @@ entity.rebornmod.camarasaurus.name=Camarasaurus
 entity.rebornmod.dimetrodon.name=Dimetrodon
 entity.rebornmod.vectipelta.name=Vectipelta
 entity.rebornmod.paraceratherium.name=Paraceratherium
+entity.rebornmod.kairuku.name=Kairuku
+entity.rebornmod.calymene.name=Calymene
+entity.rebornmod.megalodon.name=Megalodon
+entity.rebornmod.livyatan.name=Livyatan
+entity.rebornmod.patagotitan.name=Patagotitan
+entity.rebornmod.maiasaura.name=Maiasaura
+entity.rebornmod.deinosuchus.name=Deinosuchus
+entity.rebornmod.nigersaurus.name=Nigersaurus
+entity.rebornmod.endoceras.name=Endoceras
+entity.rebornmod.orthoceras.name=Orthoceras
+entity.rebornmod.cameroceras.name=Cameroceras
 
 entity.rebornmod.goat.name=Goat
 entity.rebornmod.black_jeep_wrangler.name=Black Jeep Wrangler
@@ -268,7 +279,12 @@ item.scales_fresh.name=Fresh {dino} Scales
 item.tail_fin_fresh.name=Fresh {dino} Tail Fin
 item.foot_bone_fresh.name=Fresh {dino} Foot Bone
 item.tusks_fresh.name=Fresh {dino} Tusks
-
+item.flipper_bones_fresh.name=Fresh {dino} Flipper Bones
+item.thorax_fresh.name=Fresh {dino} Thorax
+item.upper_jaw_fresh.name=Fresh {dino} Upper Jaw
+item.lower_jaw_fresh.name=Fresh {dino} Lower Jaw
+item.pygidium_fresh.name=Fresh {dino} Pygidium
+item.cephalon_fresh.name=Fresh {dino} Cephalon
 // Bones
 item.bones.name={dino} Bones
 item.femur.name={dino} Femur
@@ -321,6 +337,12 @@ item.shell_cover.name={dino} Shell Cover
 item.scales.name={dino} Scales
 item.tail_fin.name={dino} Tail Fin
 item.tusks.name={dino} Tusks
+item.flipper_bones.name={dino} Flipper Bones
+item.thorax.name={dino} Thorax
+item.upper_jaw.name={dino} Upper Jaw
+item.lower_jaw.name={dino} Lower Jaw
+item.pygidium.name={dino} Pygidium
+item.cephalon.name={dino} Cephalon
 
 item.fossilized_egg.name=Fossilized Egg
 
@@ -1039,7 +1061,17 @@ info.camarasaurus.name=One of the most common sauropods, Camarasaurus lived in N
 info.dimetrodon.name=Dimetrodon was a large synapsid from Late Permian Europe and America. The Dimetrodon's most defining trait was their massively extended vertebrae that formed a skin-webbed sail was used to warm them up and attract mates.  Its name means "two measures of teeth", and refers to the two types of teeth in its mouth: Shorter teeth, and longer teeth.
 info.vectipelta.name=Vectipelta is a genus of ankylosaurid dinosaur discovered in New Mexico, known for its well-preserved skull and body armor. It lived during the Late Cretaceous period, approximately 75 million years ago, and its name means "spear shield" in reference to its formidable defensive adaptations. Vectipelta represents an important addition to our understanding of armored dinosaurs and their evolutionary adaptations.
 info.paraceratherium.name=Paraceratherium, also known as Indricotherium, was a colossal herbivorous mammal that lived during the Oligocene epoch, around 34-23 million years ago. It is considered one of the largest land mammals to have ever existed, towering over modern-day elephants with an estimated shoulder height of up to 5 meters (16 feet) and a weight of around 15-20 tons. Despite its size, Paraceratherium was a gentle giant, feeding on leaves and soft vegetation in the forests of Eurasia.
-
+info.cameroceras.name= Cameroceras was one of the largest cephalopods of the Ordovician period, with some individuals growing over 6 meters long. Native to North America and Europe, its long, smooth conical shell helped control buoyancy and provided defense. Cameroceras used jet propulsion to ambush trilobites, smaller cephalopods, and early fish. As one of the top predators of its age, it played a major role in shaping Ordovician marine ecosystems.
+info.endoceras.name= Endoceras was a giant straight-shelled nautiloid that lived during the Ordovician seas of North America. Its shell, sometimes more than 5 meters long, was marked with distinctive growth rings called annulations. Unlike Cameroceras, Endoceras often hunted as an ambush predator, striking prey from the seafloor. Feeding mainly on trilobites and early fish, it was one of the largest and most dominant predators of its time.
+info.orthoceras.name= Orthoceras was a widespread genus of straight-shelled nautiloid cephalopods that lived from the Ordovician into the Triassic. Fossils are found worldwide, especially in Europe and North Africa, often preserved in striking black limestone. Unlike larger relatives such as Cameroceras, Orthoceras rarely exceeded a meter in length. It fed on plankton and small marine animals while using its siphuncle to control buoyancy and swim efficiently.
+info.calymene.name= Calymene was a common trilobite of the Silurian period (about 443–419 million years ago), famously nicknamed the “Dudley Bug” in England. Small to medium-sized (3–7 cm), it crawled across shallow seafloors scavenging or filter-feeding on organic debris. When threatened, Calymene enrolled into a tight ball, using its segmented exoskeleton as a shield against predators.
+info.livyatan.name= Livyatan was a giant macroraptorial sperm whale from the Miocene (≈10–9 million years ago), best known from Peru’s Pisco Formation. Reaching 13–17 meters long with massive, enamel-coated teeth up to 36 cm, it hunted large prey including other whale sand shared apex-predator status with the megatooth shark. Its robust skull and crushing bite made it one of the most formidable marine predators of all time.
+info.megalodon.name= Megalodon was an enormous prehistoric shark that lived during the Miocene and Pliocene epochs (about 23 to 3.6 million years ago). With estimates of its length reaching up to 18 meters, it is considered one of the largest and most powerful predators in vertebrate history. Megalodon fed on whales, large fish, and other marine animals, using its massive, serrated teeth to deliver devastating bites.
+info.maiasaura.name= Maiasaura, a hadrosaurid from the Late Cretaceous of Montana, is celebrated for evidence of nesting colonies and attentive parental care, suggesting large herds that tended their young. These findings provide some of the strongest evidence of complex social behavior and parental investment among dinosaurs. Fossil discoveries at Egg Mountain revealed nests containing eggs, hatchlings, and juveniles, indicating that Maiasaura returned to the same nesting grounds each year to raise their offspring.
+info.patagotitan.name=  Patagotitan, a titanosaur from Cretaceous Argentina, ranked among the largest terrestrial animals, bearing defensive osteoderms and likely roaming open floodplains in loose herds. It reached lengths of over 30 meters and weights approaching 70 tons, towering above other herbivores of its time. Fossils discovered in Patagonia suggest a slow moving, long-necked giant adapted for feeding on high vegetation. Its size alone deterred most predators, and its herding behavior provided protection for the young.
+info.kairuku.name= Kairuku was a large, flightless penguin that lived during the Oligocene epoch around 27 million years ago in what is now New Zealand. It was taller and more slender than modern penguins, with long flippers adapted for swift underwater swimming. Kairuku likely fed on fish and squid, using its streamlined body to pursue prey with agility. Its fossils provide valuable insight into the diversity and evolution of ancient penguins.
+info.deinosuchus.name= Deinosuchus was a massive prehistoric crocodilian that lived during the Late Cretaceous period of North America. It was one of the largest crocodyliforms to ever exist, growing up to 10 meters (33 feet) long and weighing several tons. Deinosuchus likely ambushed dinosaurs and other large animals that came too close to the water’s edge, using its immense jaws and crushing bite to overpower its prey.
+info.nigersaurus.name= Nigersaurus was a small rebbachisaurid sauropod from Cretaceous Africa, known for its wide muzzle and hundreds of tiny, comb-like teeth. These teeth were perfectly adapted for grazing on soft, low-lying plants that grew close to the ground. Its lightweight skull and long neck allowed it to feed efficiently without lifting its head high. Fossil evidence suggests Nigersaurus lived in herds, peacefully roaming the floodplains of what is now Niger.
 
 
 

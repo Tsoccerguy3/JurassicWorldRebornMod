@@ -1,11 +1,13 @@
 package mod.reborn.server.dinosaur;
 
 
+
 import mod.reborn.server.entity.Diet;
 import mod.reborn.server.entity.dinosaur.LambeosaurusEntity;
 import mod.reborn.server.period.TimePeriod;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
+
 import java.util.ArrayList;
 
 public class LambeosaurusDinosaur extends Dinosaur
@@ -32,8 +34,7 @@ public class LambeosaurusDinosaur extends Dinosaur
         this.setDiet((Diet.HERBIVORE.get()));
         this.setBones("cheek_teeth", "front_leg_bones", "hind_leg_bones", "neck_vertebrae", "shoulder", "pelvis", "ribcage", "skull", "tail_vertebrae");
         this.setHeadCubeName("Head");
-        this.setScale(2.5F, 0.1F);
-        this.setOffset(0.0F, 0.775F, 0.0F);
+        this.setScale(1.0F, 0.05F);
         this.setAttackBias(-50);
         this.setImprintable(true);
         this.setDefendOwner(true);
@@ -51,5 +52,6 @@ public class LambeosaurusDinosaur extends Dinosaur
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.PLAINS));
         biomeList.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.MESA));
         this.setSpawn(1, biomeList.toArray(new Biome[biomeList.size()]));
+this.init();
     }
 }

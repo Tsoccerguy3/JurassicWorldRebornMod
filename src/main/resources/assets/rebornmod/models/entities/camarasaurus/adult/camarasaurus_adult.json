@@ -4,11 +4,7 @@
     "IDLE": [
       {
         "pose": "camarasaurus_adult_idle",
-        "time": 60
-      },
-      {
-        "pose": "camarasaurus_adult_idle_1",
-        "time": 60
+        "time": 20
       }
     ],
     "RESTING": [

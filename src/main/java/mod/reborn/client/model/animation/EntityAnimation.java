@@ -24,6 +24,7 @@ public enum EntityAnimation {
     LOOKING_FOR_FISH,
     SNAP,
     DYING(true, false, false),
+    DEATH_ROLL(false, false, false),
     SCRATCHING,
     SPITTING,
     PECKING,
@@ -40,8 +41,12 @@ public enum EntityAnimation {
     START_CLIMBING(false, false),
     DILOPHOSAURUS_SPIT(false, false),
     FISH_LOOKING(false, false),
-    ATTACK_LANDING(false, true);
-
+    ATTACK_LANDING(false, true),
+    VERTICAL,
+    HORIZONTAL,
+    BASKING(true, true),
+    TAIL_SWEEP(false, false, false),
+    WADDLING(false, false, false);
 
     private Animation animation;
     private boolean hold;

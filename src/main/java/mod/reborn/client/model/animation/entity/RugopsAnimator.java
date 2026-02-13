@@ -1,8 +1,11 @@
+
 package mod.reborn.client.model.animation.entity;
 
+
+import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
 import mod.reborn.client.model.AnimatableModel;
 import mod.reborn.client.model.animation.EntityAnimator;
-import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import mod.reborn.server.entity.dinosaur.RugopsEntity;
@@ -71,6 +74,7 @@ public class RugopsAnimator extends EntityAnimator<RugopsEntity>
         model.chainWave(tailParts, 1F * globalSpeed, height * 0.05F, 3, f, f1);
         model.chainWave(leftArmParts, 1F * globalSpeed, height * 0.05F, 3, f, f1);
         model.chainWave(rightArmParts, 1F * globalSpeed, height * 0.05F, 3, f, f1);
+        model.bob(waist, 0.1F, 0.04F, false, ticks, 1.0F);
 
         // idling
         model.chainWave(tailParts, 0.1F, 0.05F, 2, ticks, 0.25F);

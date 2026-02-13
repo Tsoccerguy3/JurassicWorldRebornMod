@@ -1,51 +1,105 @@
+
 package mod.reborn.client.model.animation.entity;
 
-import mod.reborn.client.model.AnimatableModel;
-import mod.reborn.client.model.animation.EntityAnimator;
+
 import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import mod.reborn.client.model.AnimatableModel;
+import mod.reborn.client.model.animation.EntityAnimator;
 import mod.reborn.server.entity.dinosaur.DunkleosteusEntity;
 
 @SideOnly(Side.CLIENT)
-public class DunkleosteusAnimator extends EntityAnimator<DunkleosteusEntity>
-{
+public class DunkleosteusAnimator extends EntityAnimator<DunkleosteusEntity> {
+
     @Override
-    protected void performAnimations(AnimatableModel model, DunkleosteusEntity entity, float f, float f1, float ticks, float rotationYaw, float rotationPitch, float scale)
-    {
-        // tail
-        AdvancedModelRenderer tail1 = model.getCube("Tail Section 1");
-        AdvancedModelRenderer tail2 = model.getCube("Tail Section 2");
-        AdvancedModelRenderer tail3 = model.getCube("Tail Section 3");
-        AdvancedModelRenderer tail4 = model.getCube("Tail Section 4");
-        AdvancedModelRenderer tail5 = model.getCube("Tail Section 5");
-        AdvancedModelRenderer tail6 = model.getCube("Tail Section 6");
+    protected void performAnimations(AnimatableModel model, DunkleosteusEntity entity, float f, float f1, float ticks, float rotationYaw, float rotationPitch, float scale) {
+        {
 
-        // head stoof
-        AdvancedModelRenderer head = model.getCube("Main head");
+            AdvancedModelRenderer head   = model.getCube("Head");
+            AdvancedModelRenderer jaw    = model.getCube("Jaw");
 
-        // flipper
-        AdvancedModelRenderer rightFlipper = model.getCube("Right Front Flipper");
-        AdvancedModelRenderer leftFlipper = model.getCube("Left Front Flipper");
+            AdvancedModelRenderer body   = model.getCube("Body");
+            AdvancedModelRenderer body2  = model.getCube("Body2");
+            AdvancedModelRenderer body3  = model.getCube("Body3");
 
-        // body
-        AdvancedModelRenderer body2 = model.getCube("Body Section 2");
-        AdvancedModelRenderer body3 = model.getCube("Body Section 3");
+            AdvancedModelRenderer tail1  = model.getCube("Tail1");
+            AdvancedModelRenderer tail2  = model.getCube("Tail2");
 
-        AdvancedModelRenderer[] tail = new AdvancedModelRenderer[] { tail6, tail5, tail4, tail3, tail2, tail1, body3, body2, head };
+            AdvancedModelRenderer leftFrontFlipper   = model.getCube("LeftFrontFlipper");
+            AdvancedModelRenderer rightFrontFlipper  = model.getCube("RightFrontFlipper");
+            AdvancedModelRenderer middleLeftFlipper  = model.getCube("MiddleLeftFlipper");
+            AdvancedModelRenderer middleRightFlipper = model.getCube("MiddleRightFlipper");
+            AdvancedModelRenderer backLeftFlipper    = model.getCube("BackLeftFlipper");
+            AdvancedModelRenderer backRightFlipper   = model.getCube("BackRightFlipper");
 
-        head.rotationPointX -= -1 * f1 * Math.sin((f + 1) * 0.6);
-        model.chainSwing(tail, 0.3F, 0.2F, 3.0D, f, f1);
+            AdvancedModelRenderer[] tail  = new AdvancedModelRenderer[]{ tail2, tail1 };
+            AdvancedModelRenderer[] spine = new AdvancedModelRenderer[]{ body3, body2, body }; // keep Head out
 
-        model.walk(leftFlipper, 0.6F, 0.6F, false, 0.0F, 0.8F, f, f1);
-        model.walk(rightFlipper, 0.6F, 0.6F, false, 0.0F, 0.8F, f, f1);
+            final boolean inWater = entity.isInWater();
 
-        model.flap(leftFlipper, 0.6F, 0.6F, false, 0.0F, 0.8F, f, f1);
-        model.flap(rightFlipper, 0.6F, 0.6F, true, 0.0F, -0.8F, f, f1);
+            // Slightly stronger swim vs. previous version
+            float swimSpeed   = 0.26F;  // was 0.22F
+            float swimDegree  = 0.14F;  // was 0.10F
+            float waveFactor  = 0.08F;  // was 0.06F
 
-        model.bob(head, 0.04F, 2.0F, false, ticks, 0.25F);
-        model.walk(leftFlipper, 0.2F, 0.25F, false, 1.0F, 0.1F, ticks, 0.25F);
-        model.walk(rightFlipper, 0.2F, 0.25F, false, 1.0F, 0.1F, ticks, 0.25F);
-        model.chainSwing(tail, 0.05F, -0.075F, 1.5D, ticks, 0.25F);
+            float bobSpeed    = 0.18F;
+            float bobDegree   = 0.035F; // was 0.025F
+
+            float flopSpeed   = 0.30F;
+            float flopDegree  = 0.12F;
+
+            if (body != null) {
+                model.bob(body, inWater ? bobSpeed : 0.45F, inWater ? bobDegree : 0.10F, false, ticks, 1.0F);
+            }
+
+            if (inWater) {
+                model.chainSwing(tail,  swimSpeed,             swimDegree,                2, ticks, 1.0F);
+                model.chainWave (tail,  swimSpeed * 0.55F,     swimDegree * waveFactor,   2, ticks, 1.0F);
+
+                model.chainSwing(spine, swimSpeed * 0.70F,    -swimDegree * 0.20F,       2, ticks + 0.5F, 0.9F);
+
+                // Fin motion bumped slightly
+                flapPair(leftFrontFlipper,  rightFrontFlipper, 0.44F, 0.10F, ticks);
+                flapPair(middleLeftFlipper, middleRightFlipper,0.40F, 0.09F, ticks + 0.25F);
+                flapPair(backLeftFlipper,   backRightFlipper,  0.37F, 0.08F, ticks + 0.50F);
+
+            } else {
+                model.chainSwing(tail,  flopSpeed,          flopDegree,           2, ticks, 1.0F);
+                model.chainSwing(spine, flopSpeed * 0.70F, -flopDegree * 0.18F,  2, ticks, 0.9F);
+
+                if (leftFrontFlipper  != null) { leftFrontFlipper.rotateAngleZ  -= 0.22F; leftFrontFlipper.rotateAngleX  += 0.15F; }
+                if (rightFrontFlipper != null) { rightFrontFlipper.rotateAngleZ += 0.22F; rightFrontFlipper.rotateAngleX += 0.15F; }
+                if (middleLeftFlipper != null) { middleLeftFlipper.rotateAngleZ -= 0.18F; }
+                if (middleRightFlipper!= null) { middleRightFlipper.rotateAngleZ+= 0.18F; }
+                if (backLeftFlipper   != null) { backLeftFlipper.rotateAngleZ   -= 0.14F; }
+                if (backRightFlipper  != null) { backRightFlipper.rotateAngleZ  += 0.14F; }
+            }
+
+            // Head: only faceTarget, damped + clamped
+            if (head != null) {
+                float damp = 0.30F;
+                model.faceTarget(rotationYaw * damp, rotationPitch * damp, 0.35F, head);
+
+                float maxYaw   = (float)Math.toRadians(10.0);
+                float maxPitch = (float)Math.toRadians(8.0);
+                if (head.rotateAngleY >  maxYaw)   head.rotateAngleY =  maxYaw;
+                if (head.rotateAngleY < -maxYaw)   head.rotateAngleY = -maxYaw;
+                if (head.rotateAngleX >  maxPitch) head.rotateAngleX =  maxPitch;
+                if (head.rotateAngleX < -maxPitch) head.rotateAngleX = -maxPitch;
+            }
+
+        }
+    }
+
+    private static void flapPair(AdvancedModelRenderer left, AdvancedModelRenderer right, float freq, float amp, float t) {
+        if (left != null && right != null) {
+            float s = (float)Math.sin(t * freq);
+            float c = (float)Math.cos(t * freq);
+            left.rotateAngleZ  +=  s * (amp * 0.65F) - 0.18F;
+            right.rotateAngleZ += -s * (amp * 0.65F) + 0.18F;
+            left.rotateAngleX  +=  c * (amp * 0.20F);
+            right.rotateAngleX += -c * (amp * 0.20F);
+        }
     }
 }

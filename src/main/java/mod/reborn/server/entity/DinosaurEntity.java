@@ -956,6 +956,7 @@ public abstract class DinosaurEntity extends EntityCreature implements IEntityAd
                                 }
                                 child.setGenetics(genetics.toString());
                                 child.setAttributes(attributes);
+                                child.enablePersistence();
                                 this.children.add(child);
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -1355,7 +1356,7 @@ public abstract class DinosaurEntity extends EntityCreature implements IEntityAd
 
     @Override
     public boolean canDespawn() {
-        return false; // Ensures dinosaurs don't despawn naturally
+        return false;
     }
 
     public int getDinosaurAge() {
@@ -1787,7 +1788,9 @@ public abstract class DinosaurEntity extends EntityCreature implements IEntityAd
                 NBTTagCompound childTag = children.getCompoundTagAt(i);
                 Entity entity = EntityList.createEntityFromNBT(childTag, this.world);
                 if (entity instanceof DinosaurEntity) {
-                    this.children.add((DinosaurEntity) entity);
+                    DinosaurEntity child = (DinosaurEntity) entity;
+                    child.enablePersistence();
+                    this.children.add(child);
                 }
             }
         }
@@ -1923,13 +1926,18 @@ public abstract class DinosaurEntity extends EntityCreature implements IEntityAd
     }
 
     public Vec3d getHeadPos() {
-        double scale = this.interpolate(dinosaur.getScaleInfant(), dinosaur.getScaleAdult());
+        double scaleInfant = this.isSkeleton() ? dinosaur.getSkeletonScaleInfant() : dinosaur.getScaleInfant();
+        double scaleAdult = this.isSkeleton() ? dinosaur.getSkeletonScaleAdult() : dinosaur.getScaleAdult();
+        double scale = this.interpolate(scaleInfant, scaleAdult);
 
         double[] headPos = this.dinosaur.getHeadPosition(this.getGrowthStage(), ((360 - this.rotationYawHead)) % 360 - 180);
 
-        double headX = ((headPos[0] * 0.0625F) - dinosaur.getOffsetX()) * scale;
-        double headY = (((24 - headPos[1]) * 0.0625F) - dinosaur.getOffsetY()) * scale;
-        double headZ = ((headPos[2] * 0.0625F) - dinosaur.getOffsetZ()) * scale;
+        float offsetX = this.isSkeleton() ? dinosaur.getSkeletonOffsetX() : dinosaur.getOffsetX();
+        float offsetY = this.isSkeleton() ? dinosaur.getSkeletonOffsetY() : dinosaur.getOffsetY();
+        float offsetZ = this.isSkeleton() ? dinosaur.getSkeletonOffsetZ() : dinosaur.getOffsetZ();
+        double headX = ((headPos[0] * 0.0625F) - offsetX) * scale;
+        double headY = (((24 - headPos[1]) * 0.0625F) - offsetY) * scale;
+        double headZ = ((headPos[2] * 0.0625F) - offsetZ) * scale;
 
         return new Vec3d(this.posX + headX, this.posY + (headY), this.posZ + headZ);
     }
