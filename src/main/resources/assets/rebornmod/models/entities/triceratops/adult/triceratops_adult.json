@@ -3,12 +3,8 @@
     "IDLE": [
       {
         "pose": "triceratops_adult_idle",
-        "time": 60
-    },
-      {
-        "pose": "triceratops_adult_idle_1",
-        "time": 60
-     }
+        "time": 20
+    }
     ],
     "SLEEPING": [
       {

@@ -4,11 +4,7 @@
     "IDLE": [
       {
         "pose": "rugops_adult_idle",
-        "time": 55
-      },
-      {
-        "pose": "rugops_adult_idle_1",
-        "time": 55
+        "time": 20
       }
 ],
     "CALLING": [

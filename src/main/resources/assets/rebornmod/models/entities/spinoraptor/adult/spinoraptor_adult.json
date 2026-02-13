@@ -4,17 +4,31 @@
     "IDLE": [
       {
         "pose": "spinoraptor_adult_idle",
-        "time": 55
-      },
-      {
-        "pose": "spinoraptor_adult_idle_1",
-        "time": 55
+        "time": 20
       }
     ],
     "DYING": [
       {
         "pose": "spinoraptor_adult_death",
         "time": 35
+      }
+    ],
+    "SWIMMING": [
+      {
+        "pose": "spinoraptor_adult_swimming_1",
+        "time": 8
+      },
+      {
+        "pose": "spinoraptor_adult_swimming_2",
+        "time": 8
+      },
+      {
+        "pose": "spinoraptor_adult_swimming_3",
+        "time": 8
+      },
+      {
+        "pose": "spinoraptor_adult_swimming_4",
+        "time": 8
       }
     ],
     "RESTING": [

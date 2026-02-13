@@ -6,6 +6,12 @@
 			"pose": "corythosaurus_skeleton_idle",
 			"time": 1
 		  }
+       ],
+    "CALLING": [
+      {
+        "pose": "corythosaurus_skeleton_idle_bipedal",
+        "time": 1
+      }
 		]
 	}
 }

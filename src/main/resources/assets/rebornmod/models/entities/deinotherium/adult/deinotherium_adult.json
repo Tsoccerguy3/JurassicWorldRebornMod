@@ -4,12 +4,8 @@
     "IDLE": [
       {
         "pose": "deinotherium_adult_idle",
-        "time": 65
-          },
-	  {
-        "pose": "deinotherium_adult_idle_1",
-        "time": 65
-      }
+        "time": 20
+          }
     ],
 	"ATTACKING": [
 	  {
